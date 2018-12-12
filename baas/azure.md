@@ -1,33 +1,33 @@
-## 微软 Azure 云区块链服务
+## 微軟 Azure 雲區塊鏈服務
 
-Azure 是微软推出的云计算平台，向用户提供开放的 IaaS 和 PaaS 服务。
+Azure 是微軟推出的雲計算平臺，向用戶提供開放的 IaaS 和 PaaS 服務。
 
-Azure 陆续在其应用市场中提供了若干个与区块链相关的服务，分别面向多种不同的区块链底层平台，其中包括以太坊和超级账本 Fabric。
+Azure 陸續在其應用市場中提供了若干個與區塊鏈相關的服務，分別面向多種不同的區塊鏈底層平臺，其中包括以太坊和超級賬本 Fabric。
 
-可以在应用市场（https://azuremarketplace.microsoft.com/en-us/marketplace/apps）中搜索 “blockchain” 关键字查看这些服务，如下图所示。
+可以在應用市場（https://azuremarketplace.microsoft.com/en-us/marketplace/apps）中搜索 “blockchain” 關鍵字查看這些服務，如下圖所示。
 
-![Azure 上的区块链服务](_images/azure_marketplace.png)
+![Azure 上的區塊鏈服務](_images/azure_marketplace.png)
 
-下面具体介绍其中的 Azure Blockchain Service。
+下面具體介紹其中的 Azure Blockchain Service。
 
-### 使用服务
+### 使用服務
 
-使用 Azure 服务，用户可以在几分钟之内在云中部署一个区块链网络。云平台会将一些耗时的配置流程自动化，使用户专注在上层应用方案。
+使用 Azure 服務，用戶可以在幾分鐘之內在雲中部署一個區塊鏈網絡。雲平臺會將一些耗時的配置流程自動化，使用戶專注在上層應用方案。
 
-Azure 区块链服务目前支持部署以太坊或超级账本 Fabric 网络。
+Azure 區塊鏈服務目前支持部署以太坊或超級賬本 Fabric 網絡。
 
-下面以以太坊为例，在 Azure 的仪表盘中，选择创建 Ethereum Consortium Blockchain 后，输入一些配置选项，则可以开始部署该模拟网络，如下图所示。
+下面以以太坊為例，在 Azure 的儀表盤中，選擇創建 Ethereum Consortium Blockchain 後，輸入一些配置選項，則可以開始部署該模擬網絡，如下圖所示。
 
-![Azure 区块链配置](_images/azure_config.png)
+![Azure 區塊鏈配置](_images/azure_config.png)
 
-部署过程需要几分钟时间。完成后，可进入资源组查看部署结果，如下图所示，成功部署了一个以太坊网络。
+部署過程需要幾分鐘時間。完成後，可進入資源組查看部署結果，如下圖所示，成功部署了一個以太坊網絡。
 
-![Azure 区块链部署结果](_images/azure_deploy.png)
+![Azure 區塊鏈部署結果](_images/azure_deploy.png)
 
-点击 microsoft-azure-blockchain 开头的链接，可以查看网络的一些关键接口，包括管理网址、RPC 接口地址等。
+點擊 microsoft-azure-blockchain 開頭的鏈接，可以查看網絡的一些關鍵接口，包括管理網址、RPC 接口地址等。
 
-复制管理网址 ADMIN-SITE 的链接，用浏览器打开，可以进入区块链管理界面。界面中可查看网络各节点信息，也可以新建一个账户，并从 admin 账户向其发送 1000 个以太币。结果如下图所示。
+複製管理網址 ADMIN-SITE 的鏈接，用瀏覽器打開，可以進入區塊鏈管理界面。界面中可查看網絡各節點信息，也可以新建一個賬戶，並從 admin 賬戶向其發送 1000 個以太幣。結果如下圖所示。
 
-![Azure 区块链管理界面](_images/azure_admin.png)
+![Azure 區塊鏈管理界面](_images/azure_admin.png)
 
-Azure 云平台提供了相对简单的操作界面，更多的是希望用户通过 RPC 接口地址来访问所部署的区块链示例。用户可以自行通过 RPC 接口与以太坊模拟网络交互，部署和测试智能合约，此处不再赘述。
+Azure 雲平臺提供了相對簡單的操作界面，更多的是希望用戶通過 RPC 接口地址來訪問所部署的區塊鏈示例。用戶可以自行通過 RPC 接口與以太坊模擬網絡交互，部署和測試智能合約，此處不再贅述。

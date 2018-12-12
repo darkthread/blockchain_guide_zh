@@ -1,28 +1,28 @@
-## ProtoBuf 与 gRPC
-[ProtoBuf](https://github.com/google/protobuf) 是一套接口描述语言（[Interface Definition Language，IDL](https://en.wikipedia.org/wiki/Interface_description_language)），类似 Apache 的 [Thrift](https://thrift.apache.org/)。
+## ProtoBuf 與 gRPC
+[ProtoBuf](https://github.com/google/protobuf) 是一套接口描述語言（[Interface Definition Language，IDL](https://en.wikipedia.org/wiki/Interface_description_language)），類似 Apache 的 [Thrift](https://thrift.apache.org/)。
 
-相关处理工具主要是 [protoc](https://github.com/google/protobuf)，基于 C++ 语言实现。
+相關處理工具主要是 [protoc](https://github.com/google/protobuf)，基於 C++ 語言實現。
 
-用户写好 `.proto` 描述文件，之后便可以使用 protoc 自动编译生成众多计算机语言（C++、Java、Python、C#、Golang 等）的接口代码。这些代码可以支持 gRPC，也可以不支持。
+用戶寫好 `.proto` 描述文件，之後便可以使用 protoc 自動編譯生成眾多計算機語言（C++、Java、Python、C#、Golang 等）的接口代碼。這些代碼可以支持 gRPC，也可以不支持。
 
-[gRPC](https://github.com/grpc/grpc) 是 Google 开源的 RPC 框架和库，已支持主流计算机语言。底层通信采用 HTTP2 协议，比较适合互联网场景。gRPC 在设计上考虑了跟 ProtoBuf 的配合使用。
+[gRPC](https://github.com/grpc/grpc) 是 Google 開源的 RPC 框架和庫，已支持主流計算機語言。底層通信採用 HTTP2 協議，比較適合互聯網場景。gRPC 在設計上考慮了跟 ProtoBuf 的配合使用。
 
-两者分别解决不同问题，可以配合使用，也可以分开单独使用。
+兩者分別解決不同問題，可以配合使用，也可以分開單獨使用。
 
-典型的配合使用场景是，写好 `.proto` 描述文件定义 RPC 的接口，然后用 protoc（带 gRPC 插件）基于 `.proto` 模板自动生成客户端和服务端的接口代码。
+典型的配合使用場景是，寫好 `.proto` 描述文件定義 RPC 的接口，然後用 protoc（帶 gRPC 插件）基於 `.proto` 模板自動生成客戶端和服務端的接口代碼。
 
 ### ProtoBuf
 
 需要工具主要包括：
 
-* 编译工具：[protoc](https://github.com/google/protobuf)，以及一些官方没有带的语言插件；
-* 运行环境：各种语言的 protobuf 库，不同语言有不同的安装来源；
+* 編譯工具：[protoc](https://github.com/google/protobuf)，以及一些官方沒有帶的語言插件；
+* 運行環境：各種語言的 protobuf 庫，不同語言有不同的安裝來源；
 
-语法类似 C++ 语言，可以参考 ProtoBuf 语言规范：[https://developers.google.com/protocol-buffers/docs/proto](https://developers.google.com/protocol-buffers/docs/proto)。
+語法類似 C++ 語言，可以參考 ProtoBuf 語言規範：[https://developers.google.com/protocol-buffers/docs/proto](https://developers.google.com/protocol-buffers/docs/proto)。
 
-比较核心的，`message` 是代表数据结构（里面可以包括不同类型的成员变量，包括字符串、数字、数组、字典……），`service` 代表 RPC 接口。变量后面的数字是代表进行二进制编码时候的提示信息，1~15 表示热变量，会用较少的字节来编码。另外，支持导入。
+比較核心的，`message` 是代表數據結構（裡面可以包括不同類型的成員變量，包括字符串、數字、數組、字典……），`service` 代表 RPC 接口。變量後面的數字是代表進行二進制編碼時候的提示信息，1~15 表示熱變量，會用較少的字節來編碼。另外，支持導入。
 
-默认所有变量都是可选的（optional），repeated 则表示数组。主要 service rpc 接口接受单个 message 参数，返回单个 message。如下所示。
+默認所有變量都是可選的（optional），repeated 則表示數組。主要 service rpc 接口接受單個 message 參數，返回單個 message。如下所示。
 
 ```protobuf
 syntax = "proto3";
@@ -42,41 +42,41 @@ service HelloService {
 }
 ```
 
-编译最关键的参数是输出语言格式参数，例如，python 为 `--python_out=OUT_DIR`。
+編譯最關鍵的參數是輸出語言格式參數，例如，python 為 `--python_out=OUT_DIR`。
 
-一些还没有官方支持的语言，可以通过安装 protoc 对应的 plugin 来支持。例如，对于 Go 语言，可以安装
+一些還沒有官方支持的語言，可以通過安裝 protoc 對應的 plugin 來支持。例如，對於 Go 語言，可以安裝
 
 ```sh
-$ go get -u github.com/golang/protobuf/{protoc-gen-go,proto} // 前者是 plugin；后者是 go 的依赖库
+$ go get -u github.com/golang/protobuf/{protoc-gen-go,proto} // 前者是 plugin；後者是 go 的依賴庫
 ```
 
-之后，正常使用 `protoc --go_out=./ hello.proto` 来生成 hello.pb.go，会自动调用 `protoc-gen-go` 插件。
+之後，正常使用 `protoc --go_out=./ hello.proto` 來生成 hello.pb.go，會自動調用 `protoc-gen-go` 插件。
 
-ProtoBuf 提供了 `Marshal/Unmarshal` 方法来将数据结构进行序列化操作。所生成的二进制文件在存储效率上比 XML 高 3~10 倍，并且处理性能高 1~2 个数量级。
+ProtoBuf 提供了 `Marshal/Unmarshal` 方法來將數據結構進行序列化操作。所生成的二進制文件在存儲效率上比 XML 高 3~10 倍，並且處理性能高 1~2 個數量級。
 
 ### gRPC
 
-相关工具主要包括：
+相關工具主要包括：
 
-* 运行时库：各种不同语言有不同的[安装方法](https://github.com/grpc/grpc/blob/master/INSTALL.md)，主流语言的包管理器都已支持。
-* protoc，以及 gRPC 插件和其它插件：采用 ProtoBuf 作为 IDL 时，对 .proto 文件进行编译处理。
+* 運行時庫：各種不同語言有不同的[安裝方法](https://github.com/grpc/grpc/blob/master/INSTALL.md)，主流語言的包管理器都已支持。
+* protoc，以及 gRPC 插件和其它插件：採用 ProtoBuf 作為 IDL 時，對 .proto 文件進行編譯處理。
 
-类似其它 RPC 框架，gRPC 的库在服务端提供一个 gRPC Server，客户端的库是 gRPC Stub。典型的场景是客户端发送请求，同步或异步调用服务端的接口。客户端和服务端之间的通信协议是基于 HTTP2 的 [gRPC](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md) 协议，支持双工的流式保序消息，性能比较好，同时也很轻。
+類似其它 RPC 框架，gRPC 的庫在服務端提供一個 gRPC Server，客戶端的庫是 gRPC Stub。典型的場景是客戶端發送請求，同步或異步調用服務端的接口。客戶端和服務端之間的通信協議是基於 HTTP2 的 [gRPC](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md) 協議，支持雙工的流式保序消息，性能比較好，同時也很輕。
 
-采用 ProtoBuf 作为 IDL，则需要定义 service 类型。生成客户端和服务端代码。用户自行实现服务端代码中的调用接口，并且利用客户端代码来发起请求到服务端。一个完整的例子可以参考 [https://github.com/grpc/grpc-go/blob/master/examples/helloworld](https://github.com/grpc/grpc-go/blob/master/examples/helloworld/)。
+採用 ProtoBuf 作為 IDL，則需要定義 service 類型。生成客戶端和服務端代碼。用戶自行實現服務端代碼中的調用接口，並且利用客戶端代碼來發起請求到服務端。一個完整的例子可以參考 [https://github.com/grpc/grpc-go/blob/master/examples/helloworld](https://github.com/grpc/grpc-go/blob/master/examples/helloworld/)。
 
-以上面 proto 文件为例，需要执行时添加 gRPC 的 plugin：
+以上面 proto 文件為例，需要執行時添加 gRPC 的 plugin：
 
 ```sh
 $ protoc --go_out=plugins=grpc:. hello.proto
 ```
 
-gRPC 更多原理可以参考[官方文档：http://www.grpc.io/docs](http://www.grpc.io/docs/)。
+gRPC 更多原理可以參考[官方文檔：http://www.grpc.io/docs](http://www.grpc.io/docs/)。
 
 
-#### 生成服务端代码
+#### 生成服務端代碼
 
-服务端相关代码如下，主要定义了 HelloServiceServer 接口，用户可以自行编写实现代码。
+服務端相關代碼如下，主要定義了 HelloServiceServer 接口，用戶可以自行編寫實現代碼。
 
 ```go
 type HelloServiceServer interface {
@@ -88,25 +88,25 @@ func RegisterHelloServiceServer(s *grpc.Server, srv HelloServiceServer) {
 }
 ```
 
-用户需要自行实现服务端接口，代码如下。
+用戶需要自行實現服務端接口，代碼如下。
 
-比较重要的，创建并启动一个 gRPC 服务的过程：
+比較重要的，創建並啟動一個 gRPC 服務的過程：
 
-* 创建监听套接字：`lis, err := net.Listen("tcp", port)`；
-* 创建服务端：`grpc.NewServer()`；
-* 注册服务：`pb.RegisterHelloServiceServer()`；
-* 启动服务端：`s.Serve(lis)`。
+* 創建監聽套接字：`lis, err := net.Listen("tcp", port)`；
+* 創建服務端：`grpc.NewServer()`；
+* 註冊服務：`pb.RegisterHelloServiceServer()`；
+* 啟動服務端：`s.Serve(lis)`。
 
 
 ```go
 type server struct{}
 
-// 这里实现服务端接口中的方法。
+// 這裡實現服務端接口中的方法。
 func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
 	return &pb.HelloReply{Message: "Hello " + in.Name}, nil
 }
 
-// 创建并启动一个 gRPC 服务的过程：创建监听套接字、创建服务端、注册服务、启动服务端。
+// 創建並啟動一個 gRPC 服務的過程：創建監聽套接字、創建服務端、註冊服務、啟動服務端。
 func main() {
 	lis, err := net.Listen("tcp", port)
 	if err != nil {
@@ -118,12 +118,12 @@ func main() {
 }
 ```
 
-编译并启动服务端。
+編譯並啟動服務端。
 
 
-#### 生成客户端代码
+#### 生成客戶端代碼
 
-生成的 go 文件中客户端相关代码如下，主要和实现了 HelloServiceClient 接口。用户可以通过 gRPC 来直接调用这个接口。
+生成的 go 文件中客戶端相關代碼如下，主要和實現了 HelloServiceClient 接口。用戶可以通過 gRPC 來直接調用這個接口。
 
 ```go
 type HelloServiceClient interface {
@@ -148,7 +148,7 @@ func (c *helloServiceClient) SayHello(ctx context.Context, in *HelloRequest, opt
 }
 ```
 
-用户直接调用接口方法：创建连接、创建客户端、调用接口。
+用戶直接調用接口方法：創建連接、創建客戶端、調用接口。
 
 ```go
 func main() {
@@ -173,4 +173,4 @@ func main() {
 }
 ```
 
-编译并启动客户端，查看到服务端返回的消息。
+編譯並啟動客戶端，查看到服務端返回的消息。

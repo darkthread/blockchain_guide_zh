@@ -1,22 +1,22 @@
-## 链码示例二：交易资产
+## 鏈碼示例二：交易資產
 
-### 简介
+### 簡介
 
-[chaincode_example02.go](chaincode_example02.go) 主要实现如下的功能：
+[chaincode_example02.go](chaincode_example02.go) 主要實現如下的功能：
 
-* 初始化 A、B 两个账户，并为两个账户赋初始资产值；
-* 在 A、B 两个账户之间进行资产交易；
-* 分别查询 A、B 两个账户上的余额，确认交易成功；
-* 删除账户。
+* 初始化 A、B 兩個賬戶，併為兩個賬戶賦初始資產值；
+* 在 A、B 兩個賬戶之間進行資產交易；
+* 分別查詢 A、B 兩個賬戶上的餘額，確認交易成功；
+* 刪除賬戶。
 
-### 主要函数
+### 主要函數
 
-* `init`：初始化 A、B 两个账户；
-* `invoke`：实现 A、B 账户间的转账；
-* `query`：查询 A、B 账户上的余额；
-* `delete`：删除账户。
+* `init`：初始化 A、B 兩個賬戶；
+* `invoke`：實現 A、B 賬戶間的轉賬；
+* `query`：查詢 A、B 賬戶上的餘額；
+* `delete`：刪除賬戶。
 
-### 依赖的包
+### 依賴的包
 ```go
 import (
 	"errors"
@@ -26,16 +26,16 @@ import (
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 )
 ```
-`strconv` 实现 int 与 string 类型之间的转换。
+`strconv` 實現 int 與 string 類型之間的轉換。
 
-在invoke 函数中，存在：
+在invoke 函數中，存在：
 ```go
 X, err = strconv.Atoi(args[2])
 	Aval = Aval - X
 	Bval = Bval + X
 ```
 
-当 `args[2]<0` 时，A 账户余额增加，否则 B 账户余额减少。
+當 `args[2]<0` 時，A 賬戶餘額增加，否則 B 賬戶餘額減少。
 
-### 可扩展功能
-实例中未包含新增账户并初始化的功能。开发者可以根据自己的业务模型进行添加。
+### 可擴展功能
+實例中未包含新增賬戶並初始化的功能。開發者可以根據自己的業務模型進行添加。

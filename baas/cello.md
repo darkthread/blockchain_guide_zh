@@ -1,60 +1,60 @@
-﻿## 使用超级账本 Cello 搭建区块链服务
+﻿## 使用超級賬本 Cello 搭建區塊鏈服務
 
-从前面的讲解中可以看到，区块链服务平台能够有效加速对区块链技术的应用，解决企业和开发者进行手动运营管理的负担。但是这些方案都是商业用途，并且只能在线使用。
+從前面的講解中可以看到，區塊鏈服務平臺能夠有效加速對區塊鏈技術的應用，解決企業和開發者進行手動運營管理的負擔。但是這些方案都是商業用途，並且只能在線使用。
 
-![Cello 典型应用场景](_images/cello.png)
+![Cello 典型應用場景](_images/cello.png)
 
-超级账本的 Cello 项目为本地搭建区块链服务管理平台提供了开源的解决方案，可以实现在多种类型的物理资源上实现区块链网络的生命周期管理。
+超級賬本的 Cello 項目為本地搭建區塊鏈服務管理平臺提供了開源的解決方案，可以實現在多種類型的物理資源上實現區塊鏈網絡的生命週期管理。
 
-正如 Cello 的名字所蕴意，它就像一把精巧的大提琴，以区块链为琴弦，可以奏出更加动人的乐章。
+正如 Cello 的名字所蘊意，它就像一把精巧的大提琴，以區塊鏈為琴絃，可以奏出更加動人的樂章。
 
-### 基本架构和特性
+### 基本架構和特性
 
-Cello 项目由笔者领导的 IBM 技术团队于 2017 年 1 月贡献到超级账本社区，主要基于 Python 和 Javascript 语言编写。该项目的定位为区块链管理平台，支持部署、运行时管理和数据分析等功能，可以实现一套完整的 BaaS 系统的快速搭建。其基本架构如下图所示。
+Cello 項目由筆者領導的 IBM 技術團隊於 2017 年 1 月貢獻到超級賬本社區，主要基於 Python 和 Javascript 語言編寫。該項目的定位為區塊鏈管理平臺，支持部署、運行時管理和數據分析等功能，可以實現一套完整的 BaaS 系統的快速搭建。其基本架構如下圖所示。
 
-![Cello 基本架构](_images/cello_arch.png)
+![Cello 基本架構](_images/cello_arch.png)
 
-在实现区块链环境快速部署的同时，Cello 也提供了不少对区块链平台进行运行时管理的特性，这些特性总结如下。
+在實現區塊鏈環境快速部署的同時，Cello 也提供了不少對區塊鏈平臺進行運行時管理的特性，這些特性總結如下。
 
-* 管理区块链的全生命周期，包括创建、配置、使用、健康检查、删除等。
-* 支持多种基础架构作为底层资源池，包括裸机、虚拟机、容器云（Docker、Swarm、Kubernetes）等。
-* 支持多种区块链平台及自定义配置（目前以支持超级账本 Fabric 为主）。
-* 支持监控和分析功能，实现对区块链网络和智能合约的运行状况分析。
-* 提供可插拔的框架设计，包括区块链平台、资源调度、监控、驱动代理等都很容易引入第三方实现。
+* 管理區塊鏈的全生命週期，包括創建、配置、使用、健康檢查、刪除等。
+* 支持多種基礎架構作為底層資源池，包括裸機、虛擬機、容器雲（Docker、Swarm、Kubernetes）等。
+* 支持多種區塊鏈平臺及自定義配置（目前以支持超級賬本 Fabric 為主）。
+* 支持監控和分析功能，實現對區塊鏈網絡和智能合約的運行狀況分析。
+* 提供可插拔的框架設計，包括區塊鏈平臺、資源調度、監控、驅動代理等都很容易引入第三方實現。
 
-下面具体介绍如何以 Docker 主机为资源池，用 Cello 快速搭建一个区块链服务平台。
+下面具體介紹如何以 Docker 主機為資源池，用 Cello 快速搭建一個區塊鏈服務平臺。
 
-### 环境准备
+### 環境準備
 
-Cello 采用了典型的主从（Master-Worker）架构。用户可以自行准备一个 Master 物理节点和若干个 Worker 节点。
+Cello 採用了典型的主從（Master-Worker）架構。用戶可以自行準備一個 Master 物理節點和若干個 Worker 節點。
 
-其中，Master 节点负责管理（例如，创建和删除）Worker 节点中的区块链集群，其通过 8080 端口对外提供网页 Dashboard，通过 80 端口对外提供 RESTful API。Worker 节点负责提供区块链集群的物理资源，例如基于 Docker 主机或 Swarm 的方式启动多个集群，作为提供给用户可选的多个区块链网络环境。
+其中，Master 節點負責管理（例如，創建和刪除）Worker 節點中的區塊鏈集群，其通過 8080 端口對外提供網頁 Dashboard，通過 80 端口對外提供 RESTful API。Worker 節點負責提供區塊鏈集群的物理資源，例如基於 Docker 主機或 Swarm 的方式啟動多個集群，作為提供給用戶可選的多個區塊鏈網絡環境。
 
-下图中展示了一个典型的 Master-Worker 部署拓扑。每个节点默认为 Linux（如 Ubuntu 16.04）服务器或虚拟机。
+下圖中展示了一個典型的 Master-Worker 部署拓撲。每個節點默認為 Linux（如 Ubuntu 16.04）服務器或虛擬機。
 
-![Cello 部署拓扑示例](_images/cello_deployment_topo.png)
+![Cello 部署拓撲示例](_images/cello_deployment_topo.png)
 
-为了支持区块链网络，Worker 和 Master 节点需要配备足够的物理资源。例如，如果希望在一个 Worker 节点上能够启动至少 10 个区块链集群，则建议节点配置至少为 8 CPU、16G 内存、100G 硬盘容量。
+為了支持區塊鏈網絡，Worker 和 Master 節點需要配備足夠的物理資源。例如，如果希望在一個 Worker 節點上能夠啟動至少 10 個區塊鏈集群，則建議節點配置至少為 8 CPU、16G 內存、100G 硬盤容量。
 
-### 下载 Cello 源码
+### 下載 Cello 源碼
 
-Cello 代码的官方仓库在社区的 gerrit 上，并实时同步到 Github 仓库中，读者可以从任一仓库中获取代码。例如通过如下命令从官方仓库下载 Cello 源码。
+Cello 代碼的官方倉庫在社區的 gerrit 上，並實時同步到 Github 倉庫中，讀者可以從任一倉庫中獲取代碼。例如通過如下命令從官方倉庫下載 Cello 源碼。
 
 ```sh
 $ git clone http://gerrit.hyperledger.org/r/cello && cd cello
 ```
 
 
-### 配置 Worker 节点
+### 配置 Worker 節點
 
-#### 安装和配置 Docker 服务
+#### 安裝和配置 Docker 服務
 
-首先安装 Docker，推荐使用 1.12 或者更新的版本。可通过如下命令快速安装 Docker。
+首先安裝 Docker，推薦使用 1.12 或者更新的版本。可通過如下命令快速安裝 Docker。
 
 ```sh
 $ curl -fsSL https://get.docker.com/ | sh
 ```
-安装成功后，修改 Docker 服务配置。对于 Ubuntu 16.04，更新 `/lib/systemd/system/docker.service` 文件如下。
+安裝成功後，修改 Docker 服務配置。對於 Ubuntu 16.04，更新 `/lib/systemd/system/docker.service` 文件如下。
 
 ```sh
 [Service]
@@ -64,7 +64,7 @@ ExecStart=
 ExecStart=/usr/bin/dockerd -H fd:// $DOCKER_OPTS
 ```
 
-修改后，需要通过如下命令重启 Docker 服务。
+修改後，需要通過如下命令重啟 Docker 服務。
 
 ```sh
 $ sudo systemctl daemon-reload
@@ -72,31 +72,31 @@ $ sudo systemctl restart docker.service
 ```
 
 
-#### 下载 Docker 镜像
+#### 下載 Docker 鏡像
 
-对于超级账本 Fabric v1.0 集群所需的镜像，可以使用如下命令进行自动下载。
+對於超級賬本 Fabric v1.0 集群所需的鏡像，可以使用如下命令進行自動下載。
 
 ```sh
 $ cd scripts/worker_node_setup && bash download_images.sh
 ```
 
-#### 防火墙配置
+#### 防火牆配置
 
-为了确保 Worker 上的容器可以正常访问，通过如下命令确保主机开启 IP 转发。
+為了確保 Worker 上的容器可以正常訪問，通過如下命令確保主機開啟 IP 轉發。
 
 ```sh
 $ sysctl -w net.ipv4.ip_forward=1
 ```
 
-同时检查主机的 iptables 设置，确保必要的端口被打开（如 2375、7050~10000 等）。
+同時檢查主機的 iptables 設置，確保必要的端口被打開（如 2375、7050~10000 等）。
 
-### 配置 Master 节点
+### 配置 Master 節點
 
-#### 下载 Docker 镜像
+#### 下載 Docker 鏡像
 
-使用如下命令下载运行服务所必要的 Docker 镜像。
+使用如下命令下載運行服務所必要的 Docker 鏡像。
 
-其中，python:3.5 镜像是运行 Cello 核心组件的基础镜像；mongo:3.2 提供了数据库服务；yeasy/nginx:latest 提供了 Nginx 转发功能；mongo-express:0.30 镜像是为了调试数据库，可以选择性安装。
+其中，python:3.5 鏡像是運行 Cello 核心組件的基礎鏡像；mongo:3.2 提供了數據庫服務；yeasy/nginx:latest 提供了 Nginx 轉發功能；mongo-express:0.30 鏡像是為了調試數據庫，可以選擇性安裝。
 
 ```sh
 $ docker pull python:3.5 \
@@ -105,144 +105,144 @@ $ docker pull python:3.5 \
 	&& docker pull mongo-express:0.30
 ```
 
-#### 安装 Cello 服务
+#### 安裝 Cello 服務
 
-首次运行时，可以通过如下命令对 Master 节点进行快速配置，包括安装 Docker 环境、创建本地数据库目录、安装依赖软件包等。
+首次運行時，可以通過如下命令對 Master 節點進行快速配置，包括安裝 Docker 環境、創建本地數據庫目錄、安裝依賴軟件包等。
 
 ```sh
 $ make setup
 ```
 
-如果安装过程没有提示出现问题，则说明当前环境满足了运行条件。如果出现问题，可通过查看日志信息进行定位。
+如果安裝過程沒有提示出現問題，則說明當前環境滿足了運行條件。如果出現問題，可通過查看日誌信息進行定位。
 
-#### 管理 Cello 服务
+#### 管理 Cello 服務
 
-可以通过运行如下命令来快速启动 Cello 相关的组件服务（包括 dashboard、restserver、watchdog、mongo、nginx 等）。
+可以通過運行如下命令來快速啟動 Cello 相關的組件服務（包括 dashboard、restserver、watchdog、mongo、nginx 等）。
 
 ```sh
 $ make start
 ```
 
-类似地，运行 `make stop` 或 `make restart` 可以停止或重启全部服务。
+類似地，運行 `make stop` 或 `make restart` 可以停止或重啟全部服務。
 
-若希望重新部署某个特定服务（如 dashboard），可运行如下命令。
+若希望重新部署某個特定服務（如 dashboard），可運行如下命令。
 
 ```sh
 $ make redeploy service=dashboard
 ```
 
-运行如下命令可以实时查看所有服务的日志信息。
+運行如下命令可以實時查看所有服務的日誌信息。
 
 ```sh
 $ make logs
 ```
 
-若希望查看某个特定服务的日志，可运行如下命令进行过滤，如只查看 watchdog 组件的日志。
+若希望查看某個特定服務的日誌，可運行如下命令進行過濾，如只查看 watchdog 組件的日誌。
 
 ```sh
 $ make log service=watchdog
 ```
 
-### 使用 Cello 管理区块链
+### 使用 Cello 管理區塊鏈
 
-Cello 服务启动后，管理员可以通过 Cello 的 Dashboard 页面管理区块链。
+Cello 服務啟動後，管理員可以通過 Cello 的 Dashboard 頁面管理區塊鏈。
 
-默认情况下，可通过 Master 节点的 8080 端口访问 Dashboard。默认的登录用户名和密码为 `admin:pass`。
+默認情況下，可通過 Master 節點的 8080 端口訪問 Dashboard。默認的登錄用戶名和密碼為 `admin:pass`。
 
 ![Cello Dashboard](_images/cello_dashboard.png)
 
-如图，Dashboard 有多个页面，各页面的功能如下。
+如圖，Dashboard 有多個頁面，各頁面的功能如下。
 
-| 页面 |  功能 |
+| 頁面 |  功能 |
 | --- |  --- |
-| Overview |  展示系统整体状态 |
-| System Status |  展示一些统计信息 |
-| Hosts |  管理所有主机（Worker 节点） |
-| Active Chains |  管理资源池中的所有链 |
-| Inused Chains |  管理正在被用户占用的链 |
-| Released History  | 查看链的释放历史 |
+| Overview |  展示系統整體狀態 |
+| System Status |  展示一些統計信息 |
+| Hosts |  管理所有主機（Worker 節點） |
+| Active Chains |  管理資源池中的所有鏈 |
+| Inused Chains |  管理正在被用戶佔用的鏈 |
+| Released History  | 查看鏈的釋放歷史 |
 
-#### Hosts 页面
+#### Hosts 頁面
 
-在 Hosts 页面，管理员可以管理所有资源池中已存在的主机，或添加新主机。表格中会显示主机的类型、状态、正在运行的区块链数量、区块链数量上限等。所有设定为 non-schedulable (不会自动分配给用户）的主机会用灰色背景标识，如下图所示。
+在 Hosts 頁面，管理員可以管理所有資源池中已存在的主機，或添加新主機。表格中會顯示主機的類型、狀態、正在運行的區塊鏈數量、區塊鏈數量上限等。所有設定為 non-schedulable (不會自動分配給用戶）的主機會用灰色背景標識，如下圖所示。
 
-![Hosts 页面](_images/cello_dashboard_hosts.png)
+![Hosts 頁面](_images/cello_dashboard_hosts.png)
 
-点击一个主机的 Action 下拉菜单，有如下选项可供操作该主机。
+點擊一個主機的 Action 下拉菜單，有如下選項可供操作該主機。
 
-* Fillup：将主机运行的区块链数添加至上限。
-* Clean：清理主机中所有未被用户占用的链。
-* Config：更改主机配置，如名称和链数量上限。
-* Reset：重置该主机，只有当该主机没有用户占用的链时可以使用。
-* Delete：从资源池中删除该主机。
+* Fillup：將主機運行的區塊鏈數添加至上限。
+* Clean：清理主機中所有未被用戶佔用的鏈。
+* Config：更改主機配置，如名稱和鏈數量上限。
+* Reset：重置該主機，只有當該主機沒有用戶佔用的鏈時可以使用。
+* Delete：從資源池中刪除該主機。
 
-点击 Hosts 页面的 Add Host 按钮，可以向资源池中添加主机。需要设定该主机的名称、Daemon URL 地址（例如，Worker 节点的 docker daemon 监听地址和端口）、链数量上限、日志配置、是否启动区块链至数量上限、是否可向用户自动分配，如下图所示。
+點擊 Hosts 頁面的 Add Host 按鈕，可以向資源池中添加主機。需要設定該主機的名稱、Daemon URL 地址（例如，Worker 節點的 docker daemon 監聽地址和端口）、鏈數量上限、日誌配置、是否啟動區塊鏈至數量上限、是否可向用戶自動分配，如下圖所示。
 
-![添加主机](_images/cello_dashboard_addhost.png)
+![添加主機](_images/cello_dashboard_addhost.png)
 
-#### Active Chains 页面
+#### Active Chains 頁面
 
-Active Chains 页面会显示所有正在运行的链，包括链的名称、类型、状态、健康状况、规模、所属主机等信息。正在被用户占用的链会用灰色背景标识，如下图所示。
+Active Chains 頁面會顯示所有正在運行的鏈，包括鏈的名稱、類型、狀態、健康狀況、規模、所屬主機等信息。正在被用戶佔用的鏈會用灰色背景標識，如下圖所示。
 
-![Active Chains 页面](_images/cello_dashboard_activechains.png)
+![Active Chains 頁面](_images/cello_dashboard_activechains.png)
 
-点击一条链的 Actions 下拉菜单，有如下选项可供操作该链。
+點擊一條鏈的 Actions 下拉菜單，有如下選項可供操作該鏈。
 
-* Start：如果这条链处于停止状态，则启动。
-* Stop：停止运行中的链。
-* Restart：重新启动这条链。
-* Delete：删除这条链。
-* Release：将占用的链释放，随后会被删除。
+* Start：如果這條鏈處於停止狀態，則啟動。
+* Stop：停止運行中的鏈。
+* Restart：重新啟動這條鏈。
+* Delete：刪除這條鏈。
+* Release：將佔用的鏈釋放，隨後會被刪除。
 
-点击 Active Chains 页面的 Add Chain 按钮，可以向资源池中添加更多链（如果还有未被占满的主机），如下图所示。
+點擊 Active Chains 頁面的 Add Chain 按鈕，可以向資源池中添加更多鏈（如果還有未被佔滿的主機），如下圖所示。
 
-![添加链](_images/cello_dashboard_addcluster.png)
+![添加鏈](_images/cello_dashboard_addcluster.png)
 
-### 用户控制台，申请使用Chain
+### 用戶控制檯，申請使用Chain
 
-用户可以登录User Dashboard来申请和使用Chain
+用戶可以登錄User Dashboard來申請和使用Chain
 
-![登录页面](_images/cello_user_dashboard_login.png)
+![登錄頁面](_images/cello_user_dashboard_login.png)
 
-#### Chain列表页面
+#### Chain列表頁面
 
-Chain列表页面显示所有用户已经申请的链。
+Chain列表頁面顯示所有用戶已經申請的鏈。
 
-![Chain列表页面](_images/cello_user_dashboard_chain_list.png)
+![Chain列表頁面](_images/cello_user_dashboard_chain_list.png)
 
-#### Chain详情页面
+#### Chain詳情頁面
 
-Chain详情页面可以查看链的基本信息（链高度，channel数，链码安装/实例化个数，最近的block/transaction），操作历史记录。
+Chain詳情頁面可以查看鏈的基本信息（鏈高度，channel數，鏈碼安裝/實例化個數，最近的block/transaction），操作歷史記錄。
 
-![Chain详情页面](_images/cello_user_dashboard_chain_info.png)
+![Chain詳情頁面](_images/cello_user_dashboard_chain_info.png)
 
-#### 智能合约模板列表页面
+#### 智能合約模板列表頁面
 
-这个页面列取用户自己上传的智能合约代码模板，支持多个版本管理。
+這個頁面列取用戶自己上傳的智能合約代碼模板，支持多個版本管理。
 
-![智能合约模板列取页面](_images/cello_user_dashboard_chain_code_template.png)
+![智能合約模板列取頁面](_images/cello_user_dashboard_chain_code_template.png)
 
-#### 智能合约模板详情页面
+#### 智能合約模板詳情頁面
 
-在合约模板详情页面可以查看智能合约模板的详情，包括合约多版本列表，部署列表，部署合约。
+在合約模板詳情頁面可以查看智能合約模板的詳情，包括合約多版本列表，部署列表，部署合約。
 
-![智能合约详情页面](_images/cello_user_dashboard_chain_code_template_info.png)
+![智能合約詳情頁面](_images/cello_user_dashboard_chain_code_template_info.png)
 
-#### 智能合约操作页面
+#### 智能合約操作頁面
 
-在这个页面可以invoke/query已经部署好的智能合约。
+在這個頁面可以invoke/query已經部署好的智能合約。
 
-![智能合约操作页面](_images/cello_user_dashboard_chain_code_operate.png)
+![智能合約操作頁面](_images/cello_user_dashboard_chain_code_operate.png)
 
-#### 智能合约运行列表页面
+#### 智能合約運行列表頁面
 
-这个页面可以查看所有已经部署，包括成功和失败的智能合约的列表。
+這個頁面可以查看所有已經部署，包括成功和失敗的智能合約的列表。
 
-![智能合约运行列表页面](_images/cello_user_dashboard_chain_code_running.png)
+![智能合約運行列表頁面](_images/cello_user_dashboard_chain_code_running.png)
 
-### 基于 Cello 进行功能扩展
-Cello 已经提供了完整的区块链管理功能，并提供了图形界面和 API。
+### 基於 Cello 進行功能擴展
+Cello 已經提供了完整的區塊鏈管理功能，並提供了圖形界面和 API。
 
-用户可以通过向 Cello 的 Master 节点（默认为 80 端口）发送 RESTful API 来申请、释放区块链，或查看区块链相关信息，如其对外开放的接口，可供用户进行远程交互。RESTful API 的说明可在 Cello 的文档中查阅。
+用戶可以通過向 Cello 的 Master 節點（默認為 80 端口）發送 RESTful API 來申請、釋放區塊鏈，或查看區塊鏈相關信息，如其對外開放的接口，可供用戶進行遠程交互。RESTful API 的說明可在 Cello 的文檔中查閱。
 
-对于区块链服务提供者，可以利用这些 API 为用户呈现友好的区块链申请和操作界面，在 Cello 的基础之上构建和实现更多功能。
+對於區塊鏈服務提供者，可以利用這些 API 為用戶呈現友好的區塊鏈申請和操作界面，在 Cello 的基礎之上構建和實現更多功能。
