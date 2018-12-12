@@ -1,15 +1,15 @@
-## Python 客户端
-前面应用案例，都是直接通过 HTTP API 来跟 hyperledger 进行交互，操作比较麻烦。
+## Python 客戶端
+前面應用案例，都是直接通過 HTTP API 來跟 hyperledger 進行交互，操作比較麻煩。
 
-还可以直接通过 [hyperledger-py](https://github.com/yeasy/hyperledger-py) 客户端来进行更方便的操作。
+還可以直接通過 [hyperledger-py](https://github.com/yeasy/hyperledger-py) 客戶端來進行更方便的操作。
 
-### 安装
+### 安裝
 
 ```sh
 $ pip install hyperledger --upgrade
 ```
 
-或直接源码安装
+或直接源碼安裝
 
 ```sh
 $ git clone https://github.com/yeasy/hyperledger-py.git
@@ -27,13 +27,13 @@ $ python setup.py install
 {u'peers': [{u'type': 1, u'ID': {u'name': u'vp1'}, u'address': u'172.17.0.2:30303'}, {u'type': 1, u'ID': {u'name': u'vp2'}, u'address': u'172.17.0.3:30303'}]}
 ```
 
-更多使用方法，可以参考 [API 文档](https://github.com/yeasy/hyperledger-py/blob/master/docs/api.md)。
+更多使用方法，可以參考 [API 文檔](https://github.com/yeasy/hyperledger-py/blob/master/docs/api.md)。
 
-### 其它客户端
+### 其它客戶端
 
-目前，HyperLedger Fabric 已经成立了 [SDK 工作组](https://wiki.hyperledger.org/groups/fabric-sdk/fabric-sdk-wg)。
+目前，HyperLedger Fabric 已經成立了 [SDK 工作組](https://wiki.hyperledger.org/groups/fabric-sdk/fabric-sdk-wg)。
 
-目前在实现的客户端 SDK 包括：
+目前在實現的客戶端 SDK 包括：
 
 * [Python SDK](https://github.com/hyperledger/fabric-sdk-py)
 * [Nodejs SDK](https://github.com/hyperledger/fabric-sdk-node)

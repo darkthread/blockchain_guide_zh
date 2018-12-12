@@ -1,10 +1,10 @@
 ## 使用 chaincode
 
-下面演示 example02 chaincode，完成两方（如 a 和 b）之间进行价值的转移。
+下面演示 example02 chaincode，完成兩方（如 a 和 b）之間進行價值的轉移。
 
 ### 部署 chaincode
 
-集群启动后，进入一个 VP 节点。以 pbft 模式为例，节点名称为 `pbft_vp0_1`。
+集群啟動後，進入一個 VP 節點。以 pbft 模式為例，節點名稱為 `pbft_vp0_1`。
 
 ```sh
 $ docker exec -it pbft_vp0_1 bash
@@ -19,13 +19,13 @@ Deploy chaincode: ee5b24a1f17c356dd5f6e37307922e39ddba12e5d2e203ed93401d7d05eb0d
 03:08:44.740 [main] main -> INFO 002 Exiting.....
 ```
 
-返回 chaincode id 为 `ee5b24a1f17c356dd5f6e37307922e39ddba12e5d2e203ed93401d7d05eb0dd194fb9070549c5dc31eb63f4e654dbd5a1d86cbb30c48e3ab1812590cd0f78539`，后面将用这个 id 来标识这次交易。为了方便，把它记录到环境变量 CC_ID 中。
+返回 chaincode id 為 `ee5b24a1f17c356dd5f6e37307922e39ddba12e5d2e203ed93401d7d05eb0dd194fb9070549c5dc31eb63f4e654dbd5a1d86cbb30c48e3ab1812590cd0f78539`，後面將用這個 id 來標識這次交易。為了方便，把它記錄到環境變量 CC_ID 中。
 
 ```sh
 $ CC_ID="ee5b24a1f17c356dd5f6e37307922e39ddba12e5d2e203ed93401d7d05eb0dd194fb9070549c5dc31eb63f4e654dbd5a1d86cbb30c48e3ab1812590cd0f78539"
 ```
 
-部署成功后，系统中会自动生成几个 chaincode 容器，例如
+部署成功後，系統中會自動生成幾個 chaincode 容器，例如
 
 ```sh
 CONTAINER ID        IMAGE                                                                                                                                      COMMAND                  CREATED             STATUS              PORTS                                   NAMES
@@ -35,9 +35,9 @@ e86c26bad76f        dev-vp1-ee5b24a1f17c356dd5f6e37307922e39ddba12e5d2e203ed9340
 cf6e762f6a2e        dev-vp0-ee5b24a1f17c356dd5f6e37307922e39ddba12e5d2e203ed93401d7d05eb0dd194fb9070549c5dc31eb63f4e654dbd5a1d86cbb30c48e3ab1812590cd0f78539   "/opt/gopath/bin/ee5b"   2 minutes ago       Up 2 minutes                                                dev-vp0-ee5b24a1f17c356dd5f6e37307922e39ddba12e5d2e203ed93401d7d05eb0dd194fb9070549c5dc31eb63f4e654dbd5a1d86cbb30c48e3ab1812590cd0f78539
 ```
 
-### 查询 chaincode
+### 查詢 chaincode
 
-查询 a 手头的价值，为初始值 100。
+查詢 a 手頭的價值，為初始值 100。
 
 ```sh
 $ peer chaincode query -n ${CC_ID} -c '{"Function": "query", "Args": ["a"]}'
@@ -46,9 +46,9 @@ Query Result: 100
 03:22:31.420 [main] main -> INFO 002 Exiting.....
 ```
 
-### 调用 chaincode
+### 調用 chaincode
 
-a 向 b 转账 10 元。
+a 向 b 轉賬 10 元。
 
 ```sh
 $ peer chaincode invoke -n ${CC_ID} -c '{"Function": "invoke", "Args": ["a", "b", "10"]}'
@@ -56,7 +56,7 @@ $ peer chaincode invoke -n ${CC_ID} -c '{"Function": "invoke", "Args": ["a", "b"
 03:22:57.345 [main] main -> INFO 002 Exiting.....
 ```
 
-查询 a 手头的价值，为新的值 90。
+查詢 a 手頭的價值，為新的值 90。
 
 ```sh
 $ peer chaincode query -n ${CC_ID} -c '{"Function": "query", "Args": ["a"]}'

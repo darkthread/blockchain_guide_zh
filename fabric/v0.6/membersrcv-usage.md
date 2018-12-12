@@ -1,10 +1,10 @@
-## 权限管理
+## 權限管理
 
-权限管理机制是 hyperledger fabric 项目的一大特色。下面给出使用权限管理的一个应用案例。
+權限管理機制是 hyperledger fabric 項目的一大特色。下面給出使用權限管理的一個應用案例。
 
-### 启动集群
+### 啟動集群
 
-首先下载相关镜像。
+首先下載相關鏡像。
 
 ```sh
 $ docker pull yeasy/hyperledger:latest
@@ -13,7 +13,7 @@ $ docker pull yeasy/hyperledger-peer:latest
 $ docker pull yeasy/hyperledger-membersrvc:latest
 ```
 
-进入 hyperledger 项目，启动带成员管理的 PBFT 集群。
+進入 hyperledger 項目，啟動帶成員管理的 PBFT 集群。
 
 ```sh
 $ git clone https://github.com/yeasy/docker-compose-files
@@ -21,11 +21,11 @@ $ cd docker-compose-files/hyperledger/0.6/pbft
 $ docker-compose -f 4-peers-with-membersrvc.yml up
 ```
 
-### 用户登陆
+### 用戶登陸
 
-当启用了权限管理后，首先需要登录，例如以内置账户 jim 账户登录。
+當啟用了權限管理後，首先需要登錄，例如以內置賬戶 jim 賬戶登錄。
 
-登录 vp0，并执行登录命令。
+登錄 vp0，並執行登錄命令。
 
 ```sh
 $ docker exec -it pbft_vp0_1 bash
@@ -64,9 +64,9 @@ Response：
 
 ### chaincode 部署
 
-登录之后，chaincode 的部署、调用等操作与之前类似，只是需要通过 -u 选项来指定用户名。
+登錄之後，chaincode 的部署、調用等操作與之前類似，只是需要通過 -u 選項來指定用戶名。
 
-在 vp0 上执行命令：
+在 vp0 上執行命令：
 
 ```sh
 # peer chaincode deploy -u jim -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -c '{"Function":"init", "Args": ["a","100", "b", "200"]}'
@@ -76,13 +76,13 @@ Deploy chaincode: ee5b24a1f17c356dd5f6e37307922e39ddba12e5d2e203ed93401d7d05eb0d
 06:58:22.178 [main] main -> INFO 003 Exiting.....
 ```
 
-记录下返回的 chaincode ID。
+記錄下返回的 chaincode ID。
 
 ```sh
 # CC_ID=ee5b24a1f17c356dd5f6e37307922e39ddba12e5d2e203ed93401d7d05eb0dd194fb9070549c5dc31eb63f4e654dbd5a1d86cbb30c48e3ab1812590cd0f78539
 ```
 
-此时，查询账户值应当为初始值。
+此時，查詢賬戶值應當為初始值。
 
 ```sh
 # peer chaincode query -u jim -n ${CC_ID} -c '{"Function": "query", "Args": ["a"]}'
@@ -92,7 +92,7 @@ Query Result: 100
 07:28:40.281 [main] main -> INFO 003 Exiting.....
 ```
 
-也可以通过 REST 方式进行：
+也可以通過 REST 方式進行：
 
 ```sh
 POST  HOST:7050/chaincode
@@ -132,9 +132,9 @@ Response：
 }
 ```
 
-### chaincode 调用
+### chaincode 調用
 
-在账户 a、b 之间进行转账 10 元的操作。
+在賬戶 a、b 之間進行轉賬 10 元的操作。
 
 ```sh
 # peer chaincode invoke -u jim -n ${CC_ID} -c '{"Function": "invoke", "Args": ["a", "b", "10"]}'
@@ -143,7 +143,7 @@ Response：
 07:29:25.585 [main] main -> INFO 003 Exiting.....
 ```
 
-也可以通过 REST 方式进行：
+也可以通過 REST 方式進行：
 
 ```sh
 POST  HOST:7050/chaincode
@@ -183,9 +183,9 @@ Response：
 }
 ```
 
-### chaincode 查询
+### chaincode 查詢
 
-查询 a 账户的余额。
+查詢 a 賬戶的餘額。
 
 ```sh
 # peer chaincode query -u jim -n ${CC_ID} -c '{"Function": "query", "Args": ["a"]}'
@@ -195,7 +195,7 @@ Query Result: 90
 07:29:56.198 [main] main -> INFO 003 Exiting.....
 ```
 
-也可以通过 REST 方式进行：
+也可以通過 REST 方式進行：
 
 ```sh
 POST  HOST:7050/chaincode
@@ -235,7 +235,7 @@ Response：
 }
 ```
 
-### 区块信息查询
+### 區塊信息查詢
 
 URL：
 

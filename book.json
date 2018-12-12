@@ -1,5 +1,5 @@
 {
-    "title": "区块链技术指南",
+    "title": "區塊鏈技術指南",
     "author": "yeasy",
     "plugins": [
         "-autocover",
@@ -28,7 +28,7 @@
         },
         "image-captions": {
             "attributes": { "width": "400" },
-            "caption": "图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_"
+            "caption": "圖 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_"
         },
         "github-buttons": {
             "repo": "yeasy/blockchain_guide",

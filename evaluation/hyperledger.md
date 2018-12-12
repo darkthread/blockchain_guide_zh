@@ -1,21 +1,21 @@
-## Hyperledger Fabric v0.6 性能评测
+## Hyperledger Fabric v0.6 性能評測
 
-### 环境配置
-| 类型  |     操作系统     | 内核版本 | CPU(GHz) | 内存(GB) |
+### 環境配置
+| 類型  |     操作系統     | 內核版本 | CPU(GHz) | 內存(GB) |
 | :--: | :-------------: | :-----: | :------: | :-----: |
-| 物理机 | Ubuntu 14.04.1 | 3.16.0-71-generic | 4x2.0 | 8 |
+| 物理機 | Ubuntu 14.04.1 | 3.16.0-71-generic | 4x2.0 | 8 |
 
-每个集群启动后等待 10s 以上，待状态稳定。
+每個集群啟動後等待 10s 以上，待狀態穩定。
 
-仅测试单客户端、单服务端的连接性能情况。
+僅測試單客戶端、單服務端的連接性能情況。
 
-### 评测指标
+### 評測指標
 
-一般评测系统性能指标包括吞吐量（throughput）和延迟（latency）。对于区块链平台系统来说，实际交易延迟包括客户端到系统延迟（往往经过互联网），再加上系统处理反馈延迟（跟不同 consensus 算法关系很大，跟集群之间互联系统关系也很大）。
+一般評測系統性能指標包括吞吐量（throughput）和延遲（latency）。對於區塊鏈平臺系統來說，實際交易延遲包括客戶端到系統延遲（往往經過互聯網），再加上系統處理反饋延遲（跟不同 consensus 算法關係很大，跟集群之間互聯繫統關係也很大）。
 
-本次测试仅给出大家最为关注的交易吞吐量（tps）。
+本次測試僅給出大家最為關注的交易吞吐量（tps）。
 
-### 结果
+### 結果
 
 #### query 交易
 
@@ -70,7 +70,7 @@
 | -------- | ------- | --------- | ------ |
 |    1     |    4    |    2000   | 253.49* |
 
-*注：sieve 算法目前在所有交易完成后较长时间内并没有取得最终的结果，出现大量类似“vp0_1  | 07:49:26.388 [consensus/obcpbft] main -> WARN 23348 Sieve replica 0 custody expired, complaining: 3kwyMkdCSL4rbajn65v+iYWyJ5aqagXvRR9QU8qezpAZXY4y6uy2MB31SGaAiaSyPMM77TYADdBmAaZveM38zA==”警告信息。*
+*注：sieve 算法目前在所有交易完成後較長時間內並沒有取得最終的結果，出現大量類似“vp0_1  | 07:49:26.388 [consensus/obcpbft] main -> WARN 23348 Sieve replica 0 custody expired, complaining: 3kwyMkdCSL4rbajn65v+iYWyJ5aqagXvRR9QU8qezpAZXY4y6uy2MB31SGaAiaSyPMM77TYADdBmAaZveM38zA==”警告信息。*
 
-### 结论
-单客户端连接情况下，tps 基本在 190 ~ 300 范围内。
+### 結論
+單客戶端連接情況下，tps 基本在 190 ~ 300 範圍內。

@@ -1,59 +1,59 @@
-## 架构设计
+## 架構設計
 
-整个功能架构如下图所示。
+整個功能架構如下圖所示。
 
 ![](_images/refarch.png)
 
-包括三大组件：区块链服务（Blockchain）、链码服务（Chaincode）、成员权限管理（Membership）。
+包括三大組件：區塊鏈服務（Blockchain）、鏈碼服務（Chaincode）、成員權限管理（Membership）。
 
-### 概念术语
+### 概念術語
 
-* Auditability（审计性）：在一定权限和许可下，可以对链上的交易进行审计和检查。
-* Block（区块）：代表一批得到确认的交易信息的整体，准备被共识加入到区块链中。
-* Blockchain（区块链）：由多个区块链接而成的链表结构，除了首个区块，每个区块都包括前继区块内容的 hash 值。
-* Certificate Authority（CA）：负责身份权限管理，又叫 Member Service 或 Identity Service。
-* Chaincode（链上代码或链码）：区块链上的应用代码，扩展自“智能合约”概念，支持 golang、nodejs 等，运行在隔离的容器环境中。
-* Committer（提交节点）：1.0 架构中一种 peer 节点角色，负责对 orderer 排序后的交易进行检查，选择合法的交易执行并写入存储。
-* Confidentiality（保密）：只有交易相关方可以看到交易内容，其它人未经授权则无法看到。
-* Endorser（背书节点）：1.0 架构中一种 peer 节点角色，负责检验某个交易是否合法，是否愿意为之背书、签名。
-* Enrollment Certificate Authority（ECA，注册 CA）：负责成员身份相关证书管理的 CA。
-* Ledger（账本）：包括区块链结构（带有所有的可验证交易信息，但只有最终成功的交易会改变世界观）和当前的世界观（world state）。Ledger 仅存在于 Peer 节点。
-* MSP（Member Service Provider，成员服务提供者）：成员服务的抽象访问接口，实现对不同成员服务的可拔插支持。
-* Non-validating Peer（非验证节点）：不参与账本维护，仅作为交易代理响应客户端的 REST 请求，并对交易进行一些基本的有效性检查，之后转发给验证节点。
-* Orderer（排序节点）：1.0 架构中的共识服务角色，负责排序看到的交易，提供全局确认的顺序。
-* Permissioned Ledger（带权限的账本）：网络中所有节点必须是经过许可的，非许可过的节点则无法加入网络。
-* Privacy（隐私保护）：交易员可以隐藏交易的身份，其它成员在无特殊权限的情况下，只能对交易进行验证，而无法获知身份信息。
-* Transaction（交易）：执行账本上的某个函数调用。具体函数在 chaincode 中实现。
-* Transactor（交易者）：发起交易调用的客户端。
-* Transaction Certificate Authority（TCA，交易 CA）：负责维护交易相关证书管理的 CA。
-* Validating Peer（验证节点）：维护账本的核心节点，参与一致性维护、对交易的验证和执行。
-* World State（世界观）：是一个键值数据库，chaincode 用它来存储交易相关的状态。
+* Auditability（審計性）：在一定權限和許可下，可以對鏈上的交易進行審計和檢查。
+* Block（區塊）：代表一批得到確認的交易信息的整體，準備被共識加入到區塊鏈中。
+* Blockchain（區塊鏈）：由多個區塊鏈接而成的鏈表結構，除了首個區塊，每個區塊都包括前繼區塊內容的 hash 值。
+* Certificate Authority（CA）：負責身份權限管理，又叫 Member Service 或 Identity Service。
+* Chaincode（鏈上代碼或鏈碼）：區塊鏈上的應用代碼，擴展自“智能合約”概念，支持 golang、nodejs 等，運行在隔離的容器環境中。
+* Committer（提交節點）：1.0 架構中一種 peer 節點角色，負責對 orderer 排序後的交易進行檢查，選擇合法的交易執行並寫入存儲。
+* Confidentiality（保密）：只有交易相關方可以看到交易內容，其它人未經授權則無法看到。
+* Endorser（背書節點）：1.0 架構中一種 peer 節點角色，負責檢驗某個交易是否合法，是否願意為之背書、簽名。
+* Enrollment Certificate Authority（ECA，註冊 CA）：負責成員身份相關證書管理的 CA。
+* Ledger（賬本）：包括區塊鏈結構（帶有所有的可驗證交易信息，但只有最終成功的交易會改變世界觀）和當前的世界觀（world state）。Ledger 僅存在於 Peer 節點。
+* MSP（Member Service Provider，成員服務提供者）：成員服務的抽象訪問接口，實現對不同成員服務的可拔插支持。
+* Non-validating Peer（非驗證節點）：不參與賬本維護，僅作為交易代理響應客戶端的 REST 請求，並對交易進行一些基本的有效性檢查，之後轉發給驗證節點。
+* Orderer（排序節點）：1.0 架構中的共識服務角色，負責排序看到的交易，提供全局確認的順序。
+* Permissioned Ledger（帶權限的賬本）：網絡中所有節點必須是經過許可的，非許可過的節點則無法加入網絡。
+* Privacy（隱私保護）：交易員可以隱藏交易的身份，其它成員在無特殊權限的情況下，只能對交易進行驗證，而無法獲知身份信息。
+* Transaction（交易）：執行賬本上的某個函數調用。具體函數在 chaincode 中實現。
+* Transactor（交易者）：發起交易調用的客戶端。
+* Transaction Certificate Authority（TCA，交易 CA）：負責維護交易相關證書管理的 CA。
+* Validating Peer（驗證節點）：維護賬本的核心節點，參與一致性維護、對交易的驗證和執行。
+* World State（世界觀）：是一個鍵值數據庫，chaincode 用它來存儲交易相關的狀態。
 
-### 区块链服务
+### 區塊鏈服務
 
-区块链服务提供一个分布式账本平台。一般地，多个交易被打包进区块中，多个区块构成一条区块链。区块链代表的是账本状态机发生变更的历史过程。
+區塊鏈服務提供一個分佈式賬本平臺。一般地，多個交易被打包進區塊中，多個區塊構成一條區塊鏈。區塊鏈代表的是賬本狀態機發生變更的歷史過程。
 
 #### 交易
 
-交易意味着围绕着某个链码进行操作。
+交易意味著圍繞著某個鏈碼進行操作。
 
-交易可以改变世界状态。
+交易可以改變世界狀態。
 
-交易中包括的内容主要有：
+交易中包括的內容主要有：
 
-* 交易类型：目前包括 Deploy、Invoke、Query、Terminate 四种；
-* uuid：代表交易的唯一编号；
-* 链码编号 chaincodeID：交易针对的链码；
-* 负载内容的 hash 值：Deploy 或 Invoke 时候可以指定负载内容；
-* 交易的保密等级 ConfidentialityLevel；
-* 交易相关的 metadata 信息；
-* 临时生成值 nonce：跟安全机制相关；
-* 交易者的证书信息 cert；
-* 签名信息 signature；
+* 交易類型：目前包括 Deploy、Invoke、Query、Terminate 四種；
+* uuid：代表交易的唯一編號；
+* 鏈碼編號 chaincodeID：交易針對的鏈碼；
+* 負載內容的 hash 值：Deploy 或 Invoke 時候可以指定負載內容；
+* 交易的保密等級 ConfidentialityLevel；
+* 交易相關的 metadata 信息；
+* 臨時生成值 nonce：跟安全機制相關；
+* 交易者的證書信息 cert；
+* 簽名信息 signature；
 * metadata 信息；
-* 时间戳 timestamp。
+* 時間戳 timestamp。
 
-交易的数据结构（Protobuf 格式）定义为
+交易的數據結構（Protobuf 格式）定義為
 
 ```protobuf
 message Transaction {
@@ -86,7 +86,7 @@ message Transaction {
 }
 ```
 
-在 1.0 架构中，一个 transaction 包括如下信息：
+在 1.0 架構中，一個 transaction 包括如下信息：
 
 [ledger] [channel], **proposal:**[chaincode, <function name, arguments>] **endorsement:**[proposal hash, simulation result, signature]
 
@@ -94,23 +94,23 @@ message Transaction {
 * function-spec: function name, arguments
 * proposal: [channel,] chaincode, <function-spec>
 
-#### 区块
+#### 區塊
 
-区块打包交易，确认交易后的世界状态。
+區塊打包交易，確認交易後的世界狀態。
 
-一个区块中包括的内容主要有：
+一個區塊中包括的內容主要有：
 
-* 版本号 version：协议的版本信息；
-* 时间戳 timestamp：由区块提议者设定；
-* 交易信息的默克尔树的根 hash 值：由区块所包括的交易构成；
-* 世界观的默克尔树的根 hash 值：由交易发生后整个世界的状态值构成；
-* 前一个区块的 hash 值：构成链所必须；
-* 共识相关的元数据：可选值；
-* 非 hash 数据：不参与 hash 过程，各个 peer 上的值可能不同，例如本地提交时间、交易处理的返回值等；
+* 版本號 version：協議的版本信息；
+* 時間戳 timestamp：由區塊提議者設定；
+* 交易信息的默克爾樹的根 hash 值：由區塊所包括的交易構成；
+* 世界觀的默克爾樹的根 hash 值：由交易發生後整個世界的狀態值構成；
+* 前一個區塊的 hash 值：構成鏈所必須；
+* 共識相關的元數據：可選值；
+* 非 hash 數據：不參與 hash 過程，各個 peer 上的值可能不同，例如本地提交時間、交易處理的返回值等；
 
-_注意具体的交易信息并不存放在区块中。_
+_注意具體的交易信息並不存放在區塊中。_
 
-区块的数据结构（Protobuf 格式）定义为
+區塊的數據結構（Protobuf 格式）定義為
 
 ```protobuf
 message Block {
@@ -124,7 +124,7 @@ message Block {
 }
 ```
 
-一个真实的区块内容示例：
+一個真實的區塊內容示例：
 
 ```json
 {
@@ -156,50 +156,50 @@ message Block {
 }
 ```
 
-#### 世界观
-世界观用于存放链码执行过程中涉及到的状态变量，是一个键值数据库。典型的元素为 `[chaincodeID, ckey]: value` 结构。
+#### 世界觀
+世界觀用於存放鏈碼執行過程中涉及到的狀態變量，是一個鍵值數據庫。典型的元素為 `[chaincodeID, ckey]: value` 結構。
 
-为了方便计算变更后的 hash 值，一般采用默克尔树数据结构进行存储。树的结构由两个参数（`numBuckets` 和 `maxGroupingAtEachLevel`）来进行初始配置，并由 `hashFunction` 配置决定存放键值到叶子节点的方式。显然，各个节点必须保持相同的配置，并且启动后一般不建议变动。
+為了方便計算變更後的 hash 值，一般採用默克爾樹數據結構進行存儲。樹的結構由兩個參數（`numBuckets` 和 `maxGroupingAtEachLevel`）來進行初始配置，並由 `hashFunction` 配置決定存放鍵值到葉子節點的方式。顯然，各個節點必須保持相同的配置，並且啟動後一般不建議變動。
 
-* `numBuckets`：叶子节点的个数，每个叶子节点是一个桶（bucket），所有的键值被 `hashFunction` 散列分散到各个桶，决定树的宽度；
-* `maxGroupingAtEachLevel`：决定每个节点由多少个子节点的 hash 值构成，决定树的深度。
+* `numBuckets`：葉子節點的個數，每個葉子節點是一個桶（bucket），所有的鍵值被 `hashFunction` 散列分散到各個桶，決定樹的寬度；
+* `maxGroupingAtEachLevel`：決定每個節點由多少個子節點的 hash 值構成，決定樹的深度。
 
-其中，桶的内容由它所保存到键值先按照 chaincodeID 聚合，再按照升序方式组成。
+其中，桶的內容由它所保存到鍵值先按照 chaincodeID 聚合，再按照升序方式組成。
 
-一般地，假设某桶中包括 $$ M $$ 个 chaincodeID，对于 $$ chaincodeID_i $$，假设其包括 $$ N $$ 个键值对，则聚合 $$G_i$$ 内容可以计算为：
+一般地，假設某桶中包括 $$ M $$ 個 chaincodeID，對於 $$ chaincodeID_i $$，假設其包括 $$ N $$ 個鍵值對，則聚合 $$G_i$$ 內容可以計算為：
 
 $$ G_i = Len(chaincodeID_i) + chaincodeID_i + N + \sum_{1}^{N} {len(key_j) + key_j + len(value_j) + value_j} $$
 
-该桶的内容则为
+該桶的內容則為
 
 $$ bucket = \sum_{1}^{M} G_i $$
 
-*注：这里的 `+` 代表字符串拼接，并非数学运算。*
+*注：這裡的 `+` 代表字符串拼接，並非數學運算。*
 
-### 链码服务
+### 鏈碼服務
 
-链码包含所有的处理逻辑，并对外提供接口，外部通过调用链码接口来改变世界观。
+鏈碼包含所有的處理邏輯，並對外提供接口，外部通過調用鏈碼接口來改變世界觀。
 
 #### 接口和操作
-链码需要实现 Chaincode 接口，以被 VP 节点调用。
+鏈碼需要實現 Chaincode 接口，以被 VP 節點調用。
 
 ```go
 type Chaincode interface { Init(stub *ChaincodeStub, function string, args []string) ([]byte, error) Invoke(stub *ChaincodeStub, function string, args []string) ([]byte, error) Query(stub *ChaincodeStub, function string, args []string) ([]byte, error)}
 ```
 
-链码目前支持的交易类型包括：部署（Deploy）、调用（Invoke）和查询（Query）。
+鏈碼目前支持的交易類型包括：部署（Deploy）、調用（Invoke）和查詢（Query）。
 
-* 部署：VP 节点利用链码创建沙盒，沙盒启动后，处理 protobuf 协议的 shim 层一次性发送包含 ChaincodeID 信息的 REGISTER 消息给 VP 节点，进行注册，注册完成后，VP 节点通过 gRPC 传递参数并调用链码 Init 函数完成初始化；
-* 调用：VP 节点发送 TRANSACTION 消息给链码沙盒的 shim 层，shim 层用传过来的参数调用链码的 Invoke 函数完成调用；
-* 查询：VP 节点发送 QUERY 消息给链码沙盒的 shim 层，shim 层用传过来的参数调用链码的 Query 函数完成查询。
+* 部署：VP 節點利用鏈碼創建沙盒，沙盒啟動後，處理 protobuf 協議的 shim 層一次性發送包含 ChaincodeID 信息的 REGISTER 消息給 VP 節點，進行註冊，註冊完成後，VP 節點通過 gRPC 傳遞參數並調用鏈碼 Init 函數完成初始化；
+* 調用：VP 節點發送 TRANSACTION 消息給鏈碼沙盒的 shim 層，shim 層用傳過來的參數調用鏈碼的 Invoke 函數完成調用；
+* 查詢：VP 節點發送 QUERY 消息給鏈碼沙盒的 shim 層，shim 層用傳過來的參數調用鏈碼的 Query 函數完成查詢。
 
-不同链码之间可能互相调用和查询。
+不同鏈碼之間可能互相調用和查詢。
 
 #### 容器
 
-在实现上，链码需要运行在隔离的容器中，超级账本采用了 Docker 作为默认容器。
+在實現上，鏈碼需要運行在隔離的容器中，超級賬本採用了 Docker 作為默認容器。
 
-对容器的操作支持三种方法：build、start、stop，对应的接口为 VM。
+對容器的操作支持三種方法：build、start、stop，對應的接口為 VM。
 
 ```go
 type VM interface { 
@@ -208,11 +208,11 @@ type VM interface {
   stop(ctxt context.Context, id string, timeout uint, dontkill bool, dontremove bool) error 
 }
 ```
-链码部署成功后，会创建连接到部署它的 VP 节点的 gRPC 通道，以接受后续 Invoke 或 Query 指令。
+鏈碼部署成功後，會創建連接到部署它的 VP 節點的 gRPC 通道，以接受後續 Invoke 或 Query 指令。
 
 
 #### gRPC 消息
-VP 节点和容器之间通过 gRPC 消息来交互。消息基本结构为
+VP 節點和容器之間通過 gRPC 消息來交互。消息基本結構為
 
 ```protobuf
 message ChaincodeMessage {
@@ -222,37 +222,37 @@ message ChaincodeMessage {
  Type type = 1; google.protobuf.Timestamp timestamp = 2; bytes payload = 3; string uuid = 4;}
 ```
 
-当发生链码部署时，容器启动后发送 `REGISTER` 消息到 VP 节点。如果成功，VP 节点返回 `REGISTERED` 消息，并发送 `INIT` 消息到容器，调用链码中的 Init 方法。
+當發生鏈碼部署時，容器啟動後發送 `REGISTER` 消息到 VP 節點。如果成功，VP 節點返回 `REGISTERED` 消息，併發送 `INIT` 消息到容器，調用鏈碼中的 Init 方法。
 
-当发生链码调用时，VP 节点发送 `TRANSACTION` 消息到容器，调用其 Invoke 方法。如果成功，容器会返回 `RESPONSE` 消息。
+當發生鏈碼調用時，VP 節點發送 `TRANSACTION` 消息到容器，調用其 Invoke 方法。如果成功，容器會返回 `RESPONSE` 消息。
 
-类似的，当发生链码查询时，VP 节点发送 `QUERY` 消息到容器，调用其 Query 方法。如果成功，容器会返回 `RESPONSE` 消息。
+類似的，當發生鏈碼查詢時，VP 節點發送 `QUERY` 消息到容器，調用其 Query 方法。如果成功，容器會返回 `RESPONSE` 消息。
 
-### 成员权限管理
+### 成員權限管理
 
-通过基于 PKI 的成员权限管理，平台可以对接入的节点和客户端的能力进行限制。
+通過基於 PKI 的成員權限管理，平臺可以對接入的節點和客戶端的能力進行限制。
 
-证书有三种，Enrollment，Transaction，以及确保安全通信的 TLS 证书。
+證書有三種，Enrollment，Transaction，以及確保安全通信的 TLS 證書。
 
-* 注册证书 ECert：颁发给提供了注册凭证的用户或节点，一般长期有效；
-* 交易证书 TCert：颁发给用户，控制每个交易的权限，一般针对某个交易，短期有效。
-* 通信证书 TLSCert：控制对网络的访问，并且防止窃听。
+* 註冊證書 ECert：頒發給提供了註冊憑證的用戶或節點，一般長期有效；
+* 交易證書 TCert：頒發給用戶，控制每個交易的權限，一般針對某個交易，短期有效。
+* 通信證書 TLSCert：控制對網絡的訪問，並且防止竊聽。
 
 ![](_images/memserv-components.png)
 
-### 新的架构设计
-目前，VP 节点执行了所有的操作，包括接收交易，进行交易验证，进行一致性达成，进行账本维护等。这些功能的耦合导致节点性能很难进行扩展。
+### 新的架構設計
+目前，VP 節點執行了所有的操作，包括接收交易，進行交易驗證，進行一致性達成，進行賬本維護等。這些功能的耦合導致節點性能很難進行擴展。
 
-新的思路就是对这些功能进行解耦，让每个功能都相对单一，容易进行扩展。社区内已经有了一些讨论。
+新的思路就是對這些功能進行解耦，讓每個功能都相對單一，容易進行擴展。社區內已經有了一些討論。
 
-Fabric 1.0 的设计采用了适当的解耦，根据功能将节点角色解耦开，让不同节点处理不同类型的工作负载。
+Fabric 1.0 的設計採用了適當的解耦，根據功能將節點角色解耦開，讓不同節點處理不同類型的工作負載。
 
-![示例工作过程](_images/dataflow.png)
+![示例工作過程](_images/dataflow.png)
 
-* 客户端：客户端应用使用 SDK 来跟 Fabric 打交道，构造合法的交易提案提交给 endorser；收集到足够多 endorser 支持后可以构造合法的交易请求，发给 orderer 或代理节点。
-* Endorser peer：负责对来自客户端的交易进行合法性和 ACL 权限检查（模拟交易），通过则签名并返回结果给客户端。
-* Committer peer：负责维护账本，将达成一致顺序的批量交易结果进行状态检查，生成区块，执行合法的交易，并写入账本，同一个物理节点可以同时担任 endorser 和 committer 的 角色。
-* Orderer：仅负责排序，给交易们一个全局的排序，一般不需要跟账本和交易内容打交道。
-* CA：负责所有证书的维护，遵循 PKI。
+* 客戶端：客戶端應用使用 SDK 來跟 Fabric 打交道，構造合法的交易提案提交給 endorser；收集到足夠多 endorser 支持後可以構造合法的交易請求，發給 orderer 或代理節點。
+* Endorser peer：負責對來自客戶端的交易進行合法性和 ACL 權限檢查（模擬交易），通過則簽名並返回結果給客戶端。
+* Committer peer：負責維護賬本，將達成一致順序的批量交易結果進行狀態檢查，生成區塊，執行合法的交易，並寫入賬本，同一個物理節點可以同時擔任 endorser 和 committer 的 角色。
+* Orderer：僅負責排序，給交易們一個全局的排序，一般不需要跟賬本和交易內容打交道。
+* CA：負責所有證書的維護，遵循 PKI。
 
-![示例交易过程](_images/transaction_flow.png)
+![示例交易過程](_images/transaction_flow.png)
