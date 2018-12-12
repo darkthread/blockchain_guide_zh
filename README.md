@@ -18,6 +18,11 @@
 ## 進階學習
 ![區塊鏈原理、設計與應用](_images/blockchain_book.png)
 
+<center>
+<img src="https://github.com/ChenPoWei/blockchain_guide_zh/raw/master/_images/blockchain_book.png" width="30%" height="30%" />
+</center>
+
+
 《[區塊鏈原理、設計與應用](https://item.jd.com/12159265.html)》已經正式出版，詳細介紹了區塊鏈和分散式賬本領域的最新技術，基於超級賬本項目介紹了面向企業的分散式賬本方案的設計、架構和應用，歡迎大家閱讀並反饋建議。
 
 * [京東圖書](https://item.jd.com/12159265.html)
