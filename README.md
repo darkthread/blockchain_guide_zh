@@ -1,10 +1,8 @@
-# 區塊鏈技術指南
-![](https://img.shields.io/badge/Version-1.1.8-blue.svg)
+# 區塊鏈技術指南 - 繁中
+![https://github.com/yeasy/blockchain_guide](https://img.shields.io/badge/Version-1.1.8-blue.svg)
 ![](https://img.shields.io/badge/Language-Traditional%20Chinese-orange.svg)
-![](https://img.shields.io/badge/Author-Baohua%20Yang-yellowgreen.svg)
-![](https://img.shields.io/badge/Translator-Chen%20Po%20Wei-blue.svg)
-
-
+![https://github.com/yeasy](https://img.shields.io/badge/Author-Baohua%20Yang-yellowgreen.svg)
+![https://github.com/ChenPoWei](https://img.shields.io/badge/Translator-Chen%20Po%20Wei-blue.svg)
 
 區塊鏈技術是現代金融科技（Fintech）領域的一項重要技術創新。
 
