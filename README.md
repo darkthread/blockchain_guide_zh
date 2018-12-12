@@ -1,5 +1,5 @@
 # 區塊鏈技術指南
-1.1.8
+![](https://img.shields.io/badge/Version-1.1.8-blue.svg)
 
 區塊鏈技術是現代金融科技（Fintech）領域的一項重要技術創新。
 
@@ -10,9 +10,7 @@
 ## 閱讀使用
 本書適用於對區塊鏈技術感興趣，且具備一定資訊和金融基礎知識的讀者；無技術背景的讀者也可以從中瞭解到區塊鏈的應用現狀。
 
-* 線上閱讀：[GitBook](https://www.gitbook.com/book/yeasy/blockchain_guide) 或 [GitHub](https://github.com/yeasy/blockchain_guide/blob/master/SUMMARY.md)
-* pdf 版本 [下載](https://www.gitbook.com/download/pdf/book/yeasy/blockchain_guide)
-* epub 版本 [下載](https://www.gitbook.com/download/epub/book/yeasy/blockchain_guide)
+* 線上閱讀：[GitBook](https://poweichen.gitbook.io/blockchain-guide-zh/) 或 [GitHub](https://github.com/ChenPoWei/blockchain_guide/blob/master/SUMMARY.md)
 
 ## 進階學習
 ![區塊鏈原理、設計與應用](_images/blockchain_book.png)
