@@ -4,6 +4,10 @@
 ![https://github.com/yeasy](https://img.shields.io/badge/Author-Baohua%20Yang-yellowgreen.svg)
 ![https://github.com/ChenPoWei](https://img.shields.io/badge/Translator-Chen%20Po%20Wei-blue.svg)
 
+<center>
+<img src="https://github.com/ChenPoWei/blockchain_guide_zh/raw/master/_images/blockchain_book.png" width="30%" height="30%" />
+</center>
+
 區塊鏈技術是現代金融科技（Fintech）領域的一項重要技術創新。
 
 作為分散式記賬（Distributed Ledger Technology，DLT）系統的核心技術，區塊鏈被認為在金融、徵信、物聯網、經濟貿易、資產管理等眾多領域都擁有廣泛的應用前景。區塊鏈技術自身尚處於快速發展的初級階段，現有區塊鏈系統在設計和實現中利用了分散式系統、密碼學、博弈論、網路協議等諸多學科的知識，為學習原理和實踐應用都帶來了不小的挑戰。
@@ -16,11 +20,6 @@
 * 線上閱讀：[GitBook](https://poweichen.gitbook.io/blockchain-guide-zh/) 或 [GitHub](https://github.com/ChenPoWei/blockchain_guide/blob/master/SUMMARY.md)
 
 ## 進階學習
-![區塊鏈原理、設計與應用](_images/blockchain_book.png)
-
-<center>
-<img src="https://github.com/ChenPoWei/blockchain_guide_zh/raw/master/_images/blockchain_book.png" width="30%" height="30%" />
-</center>
 
 
 《[區塊鏈原理、設計與應用](https://item.jd.com/12159265.html)》已經正式出版，詳細介紹了區塊鏈和分散式賬本領域的最新技術，基於超級賬本項目介紹了面向企業的分散式賬本方案的設計、架構和應用，歡迎大家閱讀並反饋建議。
