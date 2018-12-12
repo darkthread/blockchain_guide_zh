@@ -1,47 +1,47 @@
-## 数字证书
+## 數字證書
 
-对于非对称加密算法和数字签名来说，很重要的步骤就是公钥的分发。理论上任何人都可以获取到公开的公钥。然而这个公钥文件有没有可能是伪造的呢？传输过程中有没有可能被篡改呢？一旦公钥自身出了问题，则整个建立在其上的的安全性将不复成立。
+對於非對稱加密算法和數字簽名來說，很重要的步驟就是公鑰的分發。理論上任何人都可以獲取到公開的公鑰。然而這個公鑰文件有沒有可能是偽造的呢？傳輸過程中有沒有可能被篡改呢？一旦公鑰自身出了問題，則整個建立在其上的的安全性將不復成立。
 
-数字证书机制正是为了解决这个问题，它就像日常生活中的证书一样，可以确保所记录信息的合法性。比如证明某个公钥是某个实体（个人或组织）拥有，并且确保任何篡改都能被检测出来，从而实现对用户公钥的安全分发。
+數字證書機制正是為了解決這個問題，它就像日常生活中的證書一樣，可以確保所記錄信息的合法性。比如證明某個公鑰是某個實體（個人或組織）擁有，並且確保任何篡改都能被檢測出來，從而實現對用戶公鑰的安全分發。
 
-根据所保护公钥的用途，数字证书可以分为加密数字证书（Encryption Certificate）和签名验证数字证书（Signature Certificate）。前者往往用于保护用于加密用途的公钥；后者则保护用于签名用途的公钥。两种类型的公钥也可以同时放在同一证书中。
+根據所保護公鑰的用途，數字證書可以分為加密數字證書（Encryption Certificate）和簽名驗證數字證書（Signature Certificate）。前者往往用於保護用於加密用途的公鑰；後者則保護用於簽名用途的公鑰。兩種類型的公鑰也可以同時放在同一證書中。
 
-一般情况下，证书需要由证书认证机构（Certification Authority，CA）来进行签发和背书。权威的商业证书认证机构包括 DigiCert、GlobalSign、VeriSign 等。用户也可以自行搭建本地 CA 系统，在私有网络中进行使用。
+一般情況下，證書需要由證書認證機構（Certification Authority，CA）來進行簽發和背書。權威的商業證書認證機構包括 DigiCert、GlobalSign、VeriSign 等。用戶也可以自行搭建本地 CA 系統，在私有網絡中進行使用。
 
-### X.509 证书规范
-一般的，一个数字证书内容可能包括证书域（证书的版本、序列号、签名算法类型、签发者信息、有效期、被签发主体、**签发的公开密钥**）、CA 对证书的签名算法和签名值等。
+### X.509 證書規範
+一般的，一個數字證書內容可能包括證書域（證書的版本、序列號、簽名算法類型、簽發者信息、有效期、被簽發主體、**簽發的公開密鑰**）、CA 對證書的簽名算法和簽名值等。
 
-目前使用最广泛的标准为 ITU 和 ISO 联合制定的 X.509 的 v3 版本规范（RFC 5280），其中定义了如下证书信息域：
+目前使用最廣泛的標準為 ITU 和 ISO 聯合制定的 X.509 的 v3 版本規範（RFC 5280），其中定義瞭如下證書信息域：
 
-* 版本号（Version Number）：规范的版本号，目前为版本 3，值为 0x2；
-* 序列号（Serial Number）：由 CA 维护的为它所颁发的每个证书分配的唯一的序列号，用来追踪和撤销证书。只要拥有签发者信息和序列号，就可以唯一标识一个证书。最大不能超过 20 个字节；
-* 签名算法（Signature Algorithm）：数字签名所采用的算法，如 sha256WithRSAEncryption 或 ecdsa-with-SHA256；
-* 颁发者（Issuer）：颁发证书单位的信息，如 “C=CN, ST=Beijing, L=Beijing, O=org.example.com, CN=ca.org.example.com”；
-* 有效期（Validity）：证书的有效期限，包括起止时间（如 Not Before 2018-08-08-00-00UTC，Not After 2028-08-08-00-00UTC）；
-* 被签发主体（Subject）：证书拥有者的标识信息（Distinguished Name），如 “C=CN, ST=Beijing, L=Beijing, CN=personA.org.example.com”；
-* 主体的公钥信息（Subject Public Key Info）：所保护的公钥相关的信息；
-    * 公钥算法（Public Key Algorithm）：公钥采用的算法；
-    * 主体公钥（Subject Public Key）：公钥的内容；
-* 颁发者唯一号（Issuer Unique Identifier，可选）：代表颁发者的唯一信息，仅 2、3 版本支持，可选；
-* 主体唯一号（Subject Unique Identifier，可选）：代表拥有证书实体的唯一信息，仅 2、3 版本支持，可选；
-* 扩展（Extensions，可选）：可选的一些扩展。可能包括：
-    * Subject Key Identifier：实体的密钥标识符，区分实体的多对密钥；
-    * Basic Constraints：一般指明该证书是否属于某个 CA；
-    * Authority Key Identifier：颁发这个证书的颁发者的公钥标识符；
-    * Authority Information Access：颁发相关的服务地址，如颁发者证书获取地址和吊销证书列表信息查询地址；
-    * CRL Distribution Points：证书注销列表的发布地址；
-    * Key Usage: 表明证书的用途或功能信息，如 Digital Signature、Key CertSign；
-    * Subject Alternative Name：证书身份实体的别名，如该证书可以同样代表 *.org.example.com，org.example.com，*.example.com，example.com 身份等。
+* 版本號（Version Number）：規範的版本號，目前為版本 3，值為 0x2；
+* 序列號（Serial Number）：由 CA 維護的為它所頒發的每個證書分配的唯一的序列號，用來追蹤和撤銷證書。只要擁有簽發者信息和序列號，就可以唯一標識一個證書。最大不能超過 20 個字節；
+* 簽名算法（Signature Algorithm）：數字簽名所採用的算法，如 sha256WithRSAEncryption 或 ecdsa-with-SHA256；
+* 頒發者（Issuer）：頒發證書單位的信息，如 “C=CN, ST=Beijing, L=Beijing, O=org.example.com, CN=ca.org.example.com”；
+* 有效期（Validity）：證書的有效期限，包括起止時間（如 Not Before 2018-08-08-00-00UTC，Not After 2028-08-08-00-00UTC）；
+* 被簽發主體（Subject）：證書擁有者的標識信息（Distinguished Name），如 “C=CN, ST=Beijing, L=Beijing, CN=personA.org.example.com”；
+* 主體的公鑰信息（Subject Public Key Info）：所保護的公鑰相關的信息；
+    * 公鑰算法（Public Key Algorithm）：公鑰採用的算法；
+    * 主體公鑰（Subject Public Key）：公鑰的內容；
+* 頒發者唯一號（Issuer Unique Identifier，可選）：代表頒發者的唯一信息，僅 2、3 版本支持，可選；
+* 主體唯一號（Subject Unique Identifier，可選）：代表擁有證書實體的唯一信息，僅 2、3 版本支持，可選；
+* 擴展（Extensions，可選）：可選的一些擴展。可能包括：
+    * Subject Key Identifier：實體的密鑰標識符，區分實體的多對密鑰；
+    * Basic Constraints：一般指明該證書是否屬於某個 CA；
+    * Authority Key Identifier：頒發這個證書的頒發者的公鑰標識符；
+    * Authority Information Access：頒發相關的服務地址，如頒發者證書獲取地址和吊銷證書列表信息查詢地址；
+    * CRL Distribution Points：證書註銷列表的發佈地址；
+    * Key Usage: 表明證書的用途或功能信息，如 Digital Signature、Key CertSign；
+    * Subject Alternative Name：證書身份實體的別名，如該證書可以同樣代表 *.org.example.com，org.example.com，*.example.com，example.com 身份等。
 
-此外，证书的颁发者还需要对证书内容利用自己的私钥进行签名，以防止他人篡改证书内容。
+此外，證書的頒發者還需要對證書內容利用自己的私鑰進行簽名，以防止他人篡改證書內容。
 
-### 证书格式
+### 證書格式
 
-X.509 规范中一般推荐使用 PEM（Privacy Enhanced Mail）格式来存储证书相关的文件。证书文件的文件名后缀一般为 `.crt` 或 `.cer`，对应私钥文件的文件名后缀一般为 `.key`，证书请求文件的文件名后缀为 `.csr`。有时候也统一用 `.pem` 作为文件名后缀。
+X.509 規範中一般推薦使用 PEM（Privacy Enhanced Mail）格式來存儲證書相關的文件。證書文件的文件名後綴一般為 `.crt` 或 `.cer`，對應私鑰文件的文件名後綴一般為 `.key`，證書請求文件的文件名後綴為 `.csr`。有時候也統一用 `.pem` 作為文件名後綴。
 
-PEM 格式采用文本方式进行存储，一般包括首尾标记和内容块，内容块采用 base64 编码。
+PEM 格式採用文本方式進行存儲，一般包括首尾標記和內容塊，內容塊採用 base64 編碼。
 
-例如，一个示例证书文件的 PEM 格式如下所示。
+例如，一個示例證書文件的 PEM 格式如下所示。
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -60,7 +60,7 @@ R72ijLECIFKLANpgWFoMoo3W91uzJeUmnbJJt8Jlr00ByjurfAvv
 -----END CERTIFICATE-----
 ```
 
-可以通过 openssl 工具来查看其内容。
+可以通過 openssl 工具來查看其內容。
 
 ```bash
 # openssl x509 -in example.com-cert.pem -noout -text
@@ -101,16 +101,16 @@ Certificate:
          e5:26:9d:b2:49:b7:c2:65:af:4d:01:ca:3b:ab:7c:0b:ef
 ```
 
-此外，还有 DER（Distinguished Encoding Rules）格式，是采用二进制对证书进行保存，可以与 PEM 格式互相转换。
+此外，還有 DER（Distinguished Encoding Rules）格式，是採用二進制對證書進行保存，可以與 PEM 格式互相轉換。
 
-### 证书信任链
+### 證書信任鏈
 
-证书中记录了大量信息，其中最重要的包括 `签发的公开密钥` 和 `CA 数字签名` 两个信息。因此，只要使用 CA 的公钥再次对这个证书进行签名比对，就能证明所记录的公钥是否合法。
+證書中記錄了大量信息，其中最重要的包括 `簽發的公開密鑰` 和 `CA 數字簽名` 兩個信息。因此，只要使用 CA 的公鑰再次對這個證書進行簽名比對，就能證明所記錄的公鑰是否合法。
 
-读者可能会想到，怎么证明用来验证对实体证书进行签名的 CA 公钥自身是否合法呢？毕竟在获取 CA 公钥的过程中，它也可能被篡改掉。
+讀者可能會想到，怎麼證明用來驗證對實體證書進行簽名的 CA 公鑰自身是否合法呢？畢竟在獲取 CA 公鑰的過程中，它也可能被篡改掉。
 
-实际上，CA 的公钥是否合法，一方面可以通过更上层的 CA 颁发的证书来进行认证；另一方面某些根 CA（Root CA）可以通过预先分发证书来实现信任基础。例如，主流操作系统和浏览器里面，往往会提前预置一些权威 CA 的证书（通过自身的私钥签名，系统承认这些是合法的证书）。之后所有基于这些 CA 认证过的中间层 CA（Intermediate CA）和后继 CA 都会被验证合法。这样就从预先信任的根证书，经过中间层证书，到最底下的实体证书，构成一条完整的证书信任链。
+實際上，CA 的公鑰是否合法，一方面可以通過更上層的 CA 頒發的證書來進行認證；另一方面某些根 CA（Root CA）可以通過預先分發證書來實現信任基礎。例如，主流操作系統和瀏覽器裡面，往往會提前預置一些權威 CA 的證書（通過自身的私鑰簽名，系統承認這些是合法的證書）。之後所有基於這些 CA 認證過的中間層 CA（Intermediate CA）和後繼 CA 都會被驗證合法。這樣就從預先信任的根證書，經過中間層證書，到最底下的實體證書，構成一條完整的證書信任鏈。
 
-某些时候用户在使用浏览器访问某些网站时，可能会被提示是否信任对方的证书。这说明该网站证书无法被当前系统中的证书信任链进行验证，需要进行额外检查。另外，当信任链上任一证书不可靠时，则依赖它的所有后继证书都将失去保障。
+某些時候用戶在使用瀏覽器訪問某些網站時，可能會被提示是否信任對方的證書。這說明該網站證書無法被當前系統中的證書信任鏈進行驗證，需要進行額外檢查。另外，當信任鏈上任一證書不可靠時，則依賴它的所有後繼證書都將失去保障。
 
-可见，证书作为公钥信任的基础，对其生命周期进行安全管理十分关键。后面章节将介绍的 PKI 体系提供了一套完整的证书管理的框架，包括生成、颁发、撤销过程等。
+可見，證書作為公鑰信任的基礎，對其生命週期進行安全管理十分關鍵。後面章節將介紹的 PKI 體系提供了一套完整的證書管理的框架，包括生成、頒發、撤銷過程等。

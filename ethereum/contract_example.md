@@ -1,12 +1,12 @@
-## 智能合约案例：投票
+## 智能合約案例：投票
 
-本节将介绍一个用 Solidity 语言编写的智能合约案例。代码来源于 [Solidity 官方文档](https://solidity.readthedocs.io/en/latest/index.html) 中的示例。
+本節將介紹一個用 Solidity 語言編寫的智能合約案例。代碼來源於 [Solidity 官方文檔](https://solidity.readthedocs.io/en/latest/index.html) 中的示例。
 
-该智能合约实现了一个自动化的、透明的投票应用。投票发起人可以发起投票，将投票权赋予投票人；投票人可以自己投票，或将自己的票委托给其他投票人；任何人都可以公开查询投票的结果。
+該智能合約實現了一個自動化的、透明的投票應用。投票發起人可以發起投票，將投票權賦予投票人；投票人可以自己投票，或將自己的票委託給其他投票人；任何人都可以公開查詢投票的結果。
 
-### 智能合约代码
+### 智能合約代碼
 
-实现上述功能的合约代码如下所示，并不复杂，语法跟 JavaScript 十分类似。
+實現上述功能的合約代碼如下所示，並不複雜，語法跟 JavaScript 十分類似。
 
 ```js
 pragma solidity ^0.4.11;
@@ -107,88 +107,88 @@ contract Ballot {
 }
 ```
 
-### 代码解析
+### 代碼解析
 
 #### 指定版本
 
-在第一行，`pragma` 关键字指定了和该合约兼容的编译器版本。
+在第一行，`pragma` 關鍵字指定了和該合約兼容的編譯器版本。
 
 ```
 pragma solidity ^0.4.11;
 ```
 
-该合约指定，不兼容比 `0.4.11` 更旧的编译器版本，且 `^` 符号表示也不兼容从 `0.5.0` 起的新编译器版本。即兼容版本范围是 `0.4.11 <= version < 0.5.0`。该语法与 npm 的版本描述语法一致。
+該合約指定，不兼容比 `0.4.11` 更舊的編譯器版本，且 `^` 符號表示也不兼容從 `0.5.0` 起的新編譯器版本。即兼容版本範圍是 `0.4.11 <= version < 0.5.0`。該語法與 npm 的版本描述語法一致。
 
-#### 结构体类型
+#### 結構體類型
 
-Solidity 中的合约（contract）类似面向对象编程语言中的类。每个合约可以包含状态变量、函数、事件、结构体类型和枚举类型等。一个合约也可以继承另一个合约。
+Solidity 中的合約（contract）類似面向對象編程語言中的類。每個合約可以包含狀態變量、函數、事件、結構體類型和枚舉類型等。一個合約也可以繼承另一個合約。
 
-在本例命名为 `Ballot` 的合约中，声明了 2 个结构体类型：`Voter` 和 `Proposal`。
+在本例命名為 `Ballot` 的合約中，聲明瞭 2 個結構體類型：`Voter` 和 `Proposal`。
 
-* `struct Voter`：投票人，其属性包括 `uint weight`（该投票人的权重）、`bool voted`（是否已投票）、`address delegate`（如果该投票人将投票委托给他人，则记录受委托人的账户地址）和 `uint vote`（投票做出的选择，即相应提案的索引号）。
-* `struct Proposal`：提案，其属性包括 `bytes32 name`（名称）和 `uint voteCount`（已获得的票数）。
+* `struct Voter`：投票人，其屬性包括 `uint weight`（該投票人的權重）、`bool voted`（是否已投票）、`address delegate`（如果該投票人將投票委託給他人，則記錄受委託人的賬戶地址）和 `uint vote`（投票做出的選擇，即相應提案的索引號）。
+* `struct Proposal`：提案，其屬性包括 `bytes32 name`（名稱）和 `uint voteCount`（已獲得的票數）。
 
-需要注意，`address` 类型记录了一个以太坊账户的地址。`address` 可看作一个数值类型，但也包括一些与以太币相关的方法，如查询余额 `<address>.balance`、向该地址转账 `<address>.transfer(uint256 amount)` 等。
+需要注意，`address` 類型記錄了一個以太坊賬戶的地址。`address` 可看作一個數值類型，但也包括一些與以太幣相關的方法，如查詢餘額 `<address>.balance`、向該地址轉賬 `<address>.transfer(uint256 amount)` 等。
 
-#### 状态变量
+#### 狀態變量
 
-合约中的状态变量会长期保存在区块链中。通过调用合约中的函数，这些状态变量可以被读取和改写。
+合約中的狀態變量會長期保存在區塊鏈中。通過調用合約中的函數，這些狀態變量可以被讀取和改寫。
 
-本例中定义了 3 个状态变量：`chairperson`、`voters`、`proposals`。
+本例中定義了 3 個狀態變量：`chairperson`、`voters`、`proposals`。
 
-* `address public chairperson`：投票发起人，类型为 `address`。
-* `mapping(address => Voter) public voters`：所有投票人，类型为 `address` 到 `Voter` 的映射。
-* `Proposal[] public proposals`：所有提案，类型为动态大小的 `Proposal` 数组。
+* `address public chairperson`：投票發起人，類型為 `address`。
+* `mapping(address => Voter) public voters`：所有投票人，類型為 `address` 到 `Voter` 的映射。
+* `Proposal[] public proposals`：所有提案，類型為動態大小的 `Proposal` 數組。
 
-3 个状态变量都使用了 `public` 关键字，使得变量可以被外部访问（即通过消息调用）。事实上，编译器会自动为 `public` 的变量创建同名的 getter 函数，供外部直接读取。
+3 個狀態變量都使用了 `public` 關鍵字，使得變量可以被外部訪問（即通過消息調用）。事實上，編譯器會自動為 `public` 的變量創建同名的 getter 函數，供外部直接讀取。
 
-状态变量还可设置为 `internal` 或 `private`。`internal` 的状态变量只能被该合约和继承该合约的子合约访问，`private` 的状态变量只能被该合约访问。状态变量默认为 `internal`。
+狀態變量還可設置為 `internal` 或 `private`。`internal` 的狀態變量只能被該合約和繼承該合約的子合約訪問，`private` 的狀態變量只能被該合約訪問。狀態變量默認為 `internal`。
 
-将上述关键状态信息设置为 `public` 能够增加投票的公平性和透明性。
+將上述關鍵狀態信息設置為 `public` 能夠增加投票的公平性和透明性。
 
-#### 函数
+#### 函數
 
-合约中的函数用于处理业务逻辑。函数的可见性默认为 `public`，即可以从内部或外部调用，是合约的对外接口。函数可见性也可设置为 `external`、`internal` 和 `private`。
+合約中的函數用於處理業務邏輯。函數的可見性默認為 `public`，即可以從內部或外部調用，是合約的對外接口。函數可見性也可設置為 `external`、`internal` 和 `private`。
 
-本例实现了 6 个 `public` 函数，可看作 6 个对外接口，功能分别如下。
+本例實現了 6 個 `public` 函數，可看作 6 個對外接口，功能分別如下。
 
-##### 创建投票
-函数 `function Ballot(bytes32[] proposalNames)` 用于创建一个新的投票。
+##### 創建投票
+函數 `function Ballot(bytes32[] proposalNames)` 用於創建一個新的投票。
 
-所有提案的名称通过参数 `bytes32[] proposalNames` 传入，逐个记录到状态变量 `proposals` 中。同时用 `msg.sender` 获取当前调用消息的发送者的地址，记录为投票发起人 `chairperson`，该发起人投票权重设为 1。
+所有提案的名稱通過參數 `bytes32[] proposalNames` 傳入，逐個記錄到狀態變量 `proposals` 中。同時用 `msg.sender` 獲取當前調用消息的發送者的地址，記錄為投票發起人 `chairperson`，該發起人投票權重設為 1。
 
-##### 赋予投票权
+##### 賦予投票權
 
-函数 `function giveRightToVote(address voter)` 实现给投票人赋予投票权。
+函數 `function giveRightToVote(address voter)` 實現給投票人賦予投票權。
 
-该函数给 `address voter` 赋予投票权，即将 `voter` 的投票权重设为 1，存入 `voters` 状态变量。
+該函數給 `address voter` 賦予投票權，即將 `voter` 的投票權重設為 1，存入 `voters` 狀態變量。
 
-这个函数只有投票发起人 `chairperson` 可以调用。这里用到了 `require((msg.sender == chairperson) && !voters[voter].voted)` 函数。如果 `require` 中表达式结果为 `false`，这次调用会中止，且回滚所有状态和以太币余额的改变到调用前。但已消耗的 Gas 不会返还。
+這個函數只有投票發起人 `chairperson` 可以調用。這裡用到了 `require((msg.sender == chairperson) && !voters[voter].voted)` 函數。如果 `require` 中表達式結果為 `false`，這次調用會中止，且回滾所有狀態和以太幣餘額的改變到調用前。但已消耗的 Gas 不會返還。
 
-##### 委托投票权
+##### 委託投票權
 
-函数 `function delegate(address to)` 把投票委托给其他投票人。
+函數 `function delegate(address to)` 把投票委託給其他投票人。
 
-其中，用 `voters[msg.sender]` 获取委托人，即此次调用的发起人。用 `require` 确保发起人没有投过票，且不是委托给自己。由于被委托人也可能已将投票委托出去，所以接下来，用 `while` 循环查找最终的投票代表。找到后，如果投票代表已投票，则将委托人的权重加到所投的提案上；如果投票代表还未投票，则将委托人的权重加到代表的权重上。
+其中，用 `voters[msg.sender]` 獲取委託人，即此次調用的發起人。用 `require` 確保發起人沒有投過票，且不是委託給自己。由於被委託人也可能已將投票委託出去，所以接下來，用 `while` 循環查找最終的投票代表。找到後，如果投票代表已投票，則將委託人的權重加到所投的提案上；如果投票代表還未投票，則將委託人的權重加到代表的權重上。
 
-该函数使用了 `while` 循环，这里合约编写者需要十分谨慎，防止调用者消耗过多 Gas，甚至出现死循环。
+該函數使用了 `while` 循環，這裡合約編寫者需要十分謹慎，防止調用者消耗過多 Gas，甚至出現死循環。
 
-##### 进行投票
+##### 進行投票
 
-函数 `function vote(uint proposal)` 实现投票过程。
+函數 `function vote(uint proposal)` 實現投票過程。
 
-其中，用 `voters[msg.sender]` 获取投票人，即此次调用的发起人。接下来检查是否是重复投票，如果不是，进行投票后相关状态变量的更新。
+其中，用 `voters[msg.sender]` 獲取投票人，即此次調用的發起人。接下來檢查是否是重複投票，如果不是，進行投票後相關狀態變量的更新。
 
-##### 查询获胜提案
+##### 查詢獲勝提案
 
-函数 `function winningProposal() constant returns (uint winningProposal)` 将返回获胜提案的索引号。
+函數 `function winningProposal() constant returns (uint winningProposal)` 將返回獲勝提案的索引號。
 
-这里，`returns (uint winningProposal)` 指定了函数的返回值类型，`constant` 表示该函数不会改变合约状态变量的值。
+這裡，`returns (uint winningProposal)` 指定了函數的返回值類型，`constant` 表示該函數不會改變合約狀態變量的值。
 
-函数通过遍历所有提案进行记票，得到获胜提案。
+函數通過遍歷所有提案進行記票，得到獲勝提案。
 
-##### 查询获胜者名称
+##### 查詢獲勝者名稱
 
-函数 `function winnerName() constant returns (bytes32 winnerName)` 实现返回获胜者的名称。
+函數 `function winnerName() constant returns (bytes32 winnerName)` 實現返回獲勝者的名稱。
 
-这里采用内部调用 `winningProposal()` 函数的方式获得获胜提案。如果需要采用外部调用，则需要写为 `this.winningProposal()`。
+這裡採用內部調用 `winningProposal()` 函數的方式獲得獲勝提案。如果需要採用外部調用，則需要寫為 `this.winningProposal()`。

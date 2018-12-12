@@ -1,29 +1,29 @@
-## 安装客户端
+## 安裝客戶端
 
-本节将介绍如何安装 Geth，即 Go 语言实现的以太坊客户端。这里以 Ubuntu 16.04 操作系统为例，介绍从 PPA 仓库和从源码编译这两种方式来进行安装。
+本節將介紹如何安裝 Geth，即 Go 語言實現的以太坊客戶端。這裡以 Ubuntu 16.04 操作系統為例，介紹從 PPA 倉庫和從源碼編譯這兩種方式來進行安裝。
 
-### 从 PPA 直接安装
+### 從 PPA 直接安裝
 
-首先安装必要的工具包。
+首先安裝必要的工具包。
 
 ```sh
 $ apt-get install software-properties-common
 ```
 
-之后用以下命令添加以太坊的源。
+之後用以下命令添加以太坊的源。
 
 ```sh
 $ add-apt-repository -y ppa:ethereum/ethereum
 $ apt-get update
 ```
 
-最后安装 go-ethereum。
+最後安裝 go-ethereum。
 
 ```sh
 $ apt-get install ethereum
 ```
 
-安装成功后，则可以开始使用命令行客户端 Geth。可用 `geth --help` 查看各命令和选项，例如，用以下命令可查看 Geth 版本为 1.6.1-stable。
+安裝成功後，則可以開始使用命令行客戶端 Geth。可用 `geth --help` 查看各命令和選項，例如，用以下命令可查看 Geth 版本為 1.6.1-stable。
 
 ```sh
 $ geth version
@@ -40,35 +40,35 @@ GOPATH=
 GOROOT=/usr/lib/go-1.8
 ```
 
-### 从源码编译
+### 從源碼編譯
 
-也可以选择从源码进行编译安装。
+也可以選擇從源碼進行編譯安裝。
 
-#### 安装 Go 语言环境
+#### 安裝 Go 語言環境
 
-Go 语言环境可以自行访问 [golang.org](https://golang.org) 网站下载二进制压缩包安装。注意不推荐通过包管理器安装版本，往往比较旧。
+Go 語言環境可以自行訪問 [golang.org](https://golang.org) 網站下載二進制壓縮包安裝。注意不推薦通過包管理器安裝版本，往往比較舊。
 
-如下载 Go 1.8 版本，可以采用如下命令。
+如下載 Go 1.8 版本，可以採用如下命令。
 
 ```bash
 $ curl -O https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz
 ```
 
-下载完成后，解压目录，并移动到合适的位置（推荐为 /usr/local 下）。
+下載完成後，解壓目錄，並移動到合適的位置（推薦為 /usr/local 下）。
 
 ```bash
 $ tar -xvf go1.8.linux-amd64.tar.gz
 $ sudo mv go /usr/local
 ```
 
-安装完成后记得配置 GOPATH 环境变量。
+安裝完成後記得配置 GOPATH 環境變量。
 
 ```bash
 $ export GOPATH=YOUR_LOCAL_GO_PATH/Go
 $ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 ```
 
-此时，可以通过 `go version` 命令验证安装 是否成功。
+此時，可以通過 `go version` 命令驗證安裝 是否成功。
 
 ```bash
 $ go version
@@ -76,28 +76,28 @@ $ go version
 go version go1.8 linux/amd64
 ```
 
-#### 下载和编译 Geth
+#### 下載和編譯 Geth
 
-用以下命令安装 C 的编译器。
+用以下命令安裝 C 的編譯器。
 
 ```sh
 $ apt-get install -y build-essential
 ```
 
-下载选定的 go-ethereum 源码版本，如最新的社区版本：
+下載選定的 go-ethereum 源碼版本，如最新的社區版本：
 
 ```bash
 $ git clone https://github.com/ethereum/go-ethereum
 ```
 
-编译安装 Geth。
+編譯安裝 Geth。
 
 ```bash
 $ cd go-ethereum
 $ make geth
 ```
 
-安装成功后，可用 `build/bin/geth --help` 查看各命令和选项。例如，用以下命令可查看 Geth 版本为 1.6.3-unstable。
+安裝成功後，可用 `build/bin/geth --help` 查看各命令和選項。例如，用以下命令可查看 Geth 版本為 1.6.3-unstable。
 
 ```bash
 $ build/bin/geth version
