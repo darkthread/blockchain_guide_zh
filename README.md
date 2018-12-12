@@ -19,16 +19,6 @@
 
 * 線上閱讀：[GitBook](https://poweichen.gitbook.io/blockchain-guide-zh/) 或 [GitHub](https://github.com/ChenPoWei/blockchain_guide/blob/master/SUMMARY.md)
 
-## 進階學習
-
-
-《[區塊鏈原理、設計與應用](https://item.jd.com/12159265.html)》已經正式出版，詳細介紹了區塊鏈和分散式賬本領域的最新技術，基於超級賬本項目介紹了面向企業的分散式賬本方案的設計、架構和應用，歡迎大家閱讀並反饋建議。
-
-* [京東圖書](https://item.jd.com/12159265.html)
-* [亞馬遜圖書](https://www.amazon.cn/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8E%9F%E7%90%86-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BA%94%E7%94%A8-%E6%9D%A8%E4%BF%9D%E5%8D%8E/dp/B0757CWZ6K/)
-* [China-Pub](http://product.china-pub.com/6479750)
-* [噹噹圖書](http://product.dangdang.com/25159352.html)
-
 如果發現疏漏，歡迎提交到 [勘誤表](https://github.com/yeasy/blockchain_guide/wiki/%E3%80%8A%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8E%9F%E7%90%86%E3%80%81%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E5%8B%98%E8%AF%AF%E8%A1%A8)。
 
 ## 參與貢獻
