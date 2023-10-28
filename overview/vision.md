@@ -34,7 +34,7 @@
 * 國際標準化組織（International Organization for Standardization，ISO）成立 5 個課題組，探討制定關於分佈式帳本架構、應用、安全保護、身份管理和智能合約方面的相關規範；
 * 電氣電子工程師協會（IEEE）成立 P2418.2項目，探討區塊鏈系統數據格式標準；
 * 國際互聯網工程任務組（Internet Engineering Task Force，IETF）成立了 Decentralized Internet Infrastructure Proposed RG (dinrg)。該研究組將集中在非中心化架構服務中的信任管理、身份管理、命名和資源發現等問題；
-* 萬維網聯盟（World Wide Web Consortium，W3C）成立了三個相關的研究小組，分別探討區塊鏈技術和應用；數字資產管理規範以及跨帳本互聯協議等。
+* 萬維網聯盟（World Wide Web Consortium，W3C）成立了三個相關的研究小組，分別探討區塊鏈技術和應用；數位資產管理規範以及跨帳本互聯協議等。
 
 當然，企業界的進展也不甘落後。不少科技企業已推出了分佈式帳本相關的產品或方案，並得到了初步的驗證。由於分佈式帳本技術自身的複雜性和尚不成熟，正確使用還需要較高的門檻。目前，這些企業方案多數依託流行的雲計算技術，將節約開發成本、方便用戶使用帳本服務作為主要目標。
 

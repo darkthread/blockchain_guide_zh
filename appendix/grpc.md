@@ -20,7 +20,7 @@
 
 語法類似 C++ 語言，可以參考 ProtoBuf 語言規範：[https://developers.google.com/protocol-buffers/docs/proto](https://developers.google.com/protocol-buffers/docs/proto)。
 
-比較核心的，`message` 是代表數據結構（裡面可以包括不同類型的成員變量，包括字符串、數字、數組、字典……），`service` 代表 RPC 接口。變量後面的數字是代表進行二進制編碼時候的提示信息，1~15 表示熱變量，會用較少的字節來編碼。另外，支持導入。
+比較核心的，`message` 是代表數據結構（裡面可以包括不同類型的成員變量，包括字符串、數位、數組、字典……），`service` 代表 RPC 接口。變量後面的數位是代表進行二進制編碼時候的提示信息，1~15 表示熱變量，會用較少的字節來編碼。另外，支持導入。
 
 默認所有變量都是可選的（optional），repeated 則表示數組。主要 service rpc 接口接受單個 message 參數，返回單個 message。如下所示。
 
