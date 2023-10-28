@@ -2,17 +2,17 @@
 
 ### 定義
 
-**FLP 不可能原理**：在網絡可靠，但允許節點失效（即便只有一個）的最小化異步模型系統中，不存在一個可以解決一致性問題的確定性共識算法（No completely asynchronous consensus protocol can tolerate even a single unannounced process death）。
+**FLP 不可能原理**：在網路可靠，但允許節點失效（即便只有一個）的最小化異步模型系統中，不存在一個可以解決一致性問題的確定性共識算法（No completely asynchronous consensus protocol can tolerate even a single unannounced process death）。
 
 提出並證明該定理的論文《Impossibility of Distributed Consensus with One Faulty Process》是由 Fischer，Lynch 和 Patterson 三位科學家於 1985 年發表，該論文後來獲得了 Dijkstra（就是發明最短路徑算法的那位計算機科學家）獎。
 
-FLP 不可能原理告訴我們，**不要浪費時間，去試圖為異步分佈式系統設計面向任意場景的共識算法**。
+FLP 不可能原理告訴我們，**不要浪費時間，去試圖為異步分散式系統設計面向任意場景的共識算法**。
 
 ### 如何理解
 
 要正確理解 FLP 不可能原理，首先要弄清楚“異步”的含義。
 
-在分佈式系統中，同步和異步這兩個術語存在特殊的含義。
+在分散式系統中，同步和異步這兩個術語存在特殊的含義。
 
 * 同步，是指系統中的各個節點的時鐘誤差存在上限；並且消息傳遞必須在一定時間內完成，否則認為失敗；同時各個節點完成處理消息的時間是一定的。因此同步系統中可以很容易地判斷消息是否丟失。
 * 異步，則意味著系統中各個節點可能存在較大的時鐘差異；同時消息傳輸時間是任意長的；各節點對消息進行處理的時間也可能是任意長的。這就造成無法判斷某個消息遲遲沒有被響應是哪裡出了問題（節點故障還是傳輸故障？）。不幸地是，現實生活中的系統往往都是異步系統。

@@ -95,7 +95,7 @@ $ docker run --name=vp0 \
 
 ### 使用 PBFT 模式
 
-PBFT 是經典的分佈式一致性算法，也是 hyperledger 目前最推薦的算法，該算法至少需要 4 個節點。
+PBFT 是經典的分散式一致性算法，也是 hyperledger 目前最推薦的算法，該算法至少需要 4 個節點。
 
 首先，下載 Compose 模板文件。
 

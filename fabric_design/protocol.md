@@ -52,7 +52,7 @@ message HelloMessage { PeerEndpoint peerEndpoint = 1; uint64 blockNumber = 2;}me
 message PeerID { string name = 1;}
 ```
 
-節點新加入網絡時，會向 `CORE_PEER_DISCOVERY_ROOTNODE` 發送 `DISC_HELLO` 消息，彙報本節點的信息（id、地址、block 數、類型等），開始探測過程。
+節點新加入網路時，會向 `CORE_PEER_DISCOVERY_ROOTNODE` 發送 `DISC_HELLO` 消息，彙報本節點的信息（id、地址、block 數、類型等），開始探測過程。
 
 探測後發現 block 數落後對方，則會觸發同步過程。
 
@@ -75,7 +75,7 @@ enum ConfidentialityLevel { PUBLIC = 0; CONFIDENTIAL = 1;}
 ```
 
 ### Synchronization
-當節點發現自己 block 落後網絡中最新狀態，則可以通過發送如下消息（由 consensus 策略決定）來獲取對應的返回。
+當節點發現自己 block 落後網路中最新狀態，則可以通過發送如下消息（由 consensus 策略決定）來獲取對應的返回。
 
 * SYNC_GET_BLOCKS（對應 SYNC_BLOCKS）：獲取給定範圍內的 block 數據；
 * SYNC_STATE_GET_SNAPSHOT（對應 SYNC_STATE_SNAPSHOT）：獲取最新的世界觀快照；

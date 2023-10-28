@@ -9,7 +9,7 @@ Hyperledger 所有項目代碼託管在 [Gerrit](https://gerrit.hyperledger.org)
 * [Blockchain Explorer](https://github.com/hyperledger/blockchain-explorer)：提供 Web 操作界面，通過界面快速查看查詢綁定區塊鏈的狀態（區塊個數、交易歷史）信息等，由 DTCC、IBM、Intel 等開發支持。2016 年 8 月貢獻到社區。
 * [Iroha](https://github.com/hyperledger/Iroha)：帳本平臺項目，基於 C++ 實現，帶有不少面向 Web 和 Mobile 的特性，主要由 Soramitsu 於 2016 年 10 月發起和貢獻。
 * [Cello](https://github.com/hyperledger/cello)：提供區塊鏈平臺的部署和運行時管理功能。使用 Cello，管理員可以輕鬆部署和管理多條區塊鏈；應用開發者可以無需關心如何搭建和維護區塊鏈，由 IBM 團隊於 2017 年 1 月貢獻到社區。
-* [Indy](https://github.com/hyperledger/indy)：提供基於分佈式帳本技術的數位身份管理機制，由 Sovrin 基金會發起，2017 年 3 月底正式貢獻到社區。
+* [Indy](https://github.com/hyperledger/indy)：提供基於分散式帳本技術的數位身份管理機制，由 Sovrin 基金會發起，2017 年 3 月底正式貢獻到社區。
 * [Composer](https://github.com/hyperledger/composer)：提供面向鏈碼開發的高級語言支持，自動生成鏈碼代碼等，由 IBM 團隊發起並維護，2017 年 3 月底貢獻到社區。
 * [Burrow](https://github.com/hyperledger/burrow)：提供以太坊虛擬機的支持，實現支持高效交易的帶權限的區塊鏈平臺，由 Monax 公司發起支持，2017 年 4 月貢獻到社區。
 * [Quilt](https://github.com/hyperledger/quilt)：對 W3C 支持的跨帳本協議 Interledger 的 Java 實現。2017 年 10 月正式貢獻到社區。
@@ -27,7 +27,7 @@ Hyperledger 所有項目代碼託管在 [Gerrit](https://gerrit.hyperledger.org)
 
 作為最早加入到超級帳本項目中的頂級項目，Fabric 由 IBM、DAH 等企業於 2015 年底提交到社區。項目在 Github 上地址為 https://github.com/hyperledger/fabric。
 
-該項目的定位是面向企業的分佈式帳本平臺，創新的引入了權限管理支持，設計上支持可插拔、可擴展，是首個面向聯盟鏈場景的開源項目。
+該項目的定位是面向企業的分散式帳本平臺，創新的引入了權限管理支持，設計上支持可插拔、可擴展，是首個面向聯盟鏈場景的開源項目。
 
 Fabric 項目基於 Go 語言實現，目前提交次數已經超過 15000 次，核心代碼數超過 15 萬行。
 
@@ -39,7 +39,7 @@ Fabric 項目目前處於活躍狀態，已發佈 1.3.0 版本，同時包括 Fa
 
 Sawtooth 項目由 Intel 等企業於 2016 年 4 月提交到社區。核心代碼在 Github 上地址為 https://github.com/hyperledger/sawtooth-core。
 
-該項目的定位也是分佈式帳本平臺，基於 Python 語言實現，目前提交次數已經超過 4000 次。
+該項目的定位也是分散式帳本平臺，基於 Python 語言實現，目前提交次數已經超過 4000 次。
 
 Sawtooth 項目利用 Intel 芯片的專屬功能，實現了低功耗的 Proof of Elapsed Time（PoET）共識機制，並支持交易族（Transaction Family），方便用戶使用它來快速開發應用。
 
@@ -49,7 +49,7 @@ Sawtooth 項目利用 Intel 芯片的專屬功能，實現了低功耗的 Proof 
 
 Iroha 項目由 Soramitsu 等企業於 2016 年 10 月提交到社區。核心代碼在 Github 上地址為 https://github.com/hyperledger/iroha。
 
-該項目的定位是分佈式帳本平臺框架，基於 C++ 語言實現，目前提交次數已經超過 3000 次。
+該項目的定位是分散式帳本平臺框架，基於 C++ 語言實現，目前提交次數已經超過 3000 次。
 
 Iroha 項目在設計上類似 Fabric，同時提供了基於 C++ 的區塊鏈開發環境，並考慮了移動端和 Web 端的一些需求。
 
@@ -60,7 +60,7 @@ Iroha 項目在設計上類似 Fabric，同時提供了基於 C++ 的區塊鏈�
 
 Blockchain Explorer 項目由 Intel、DTCC、IBM 等企業於 2016 年 8 月提交到社區。核心代碼在 Github 上地址為 https://github.com/hyperledger/blockchain-explorer。後來更名為 Hyperledger Explorer。
 
-該項目的定位是區塊鏈平臺的瀏覽器，基於 Node.js 語言實現，提供 Web 操作界面。用戶可以使用它來快速查看底層區塊鏈平臺的運行信息，如區塊個數、交易情況、網絡狀況等。
+該項目的定位是區塊鏈平臺的瀏覽器，基於 Node.js 語言實現，提供 Web 操作界面。用戶可以使用它來快速查看底層區塊鏈平臺的運行信息，如區塊個數、交易情況、網路狀況等。
 
 ### Cello 項目
 
@@ -74,7 +74,7 @@ Cello 的主要開發語言為 Python 和 JavaScript 等，底層支持包括裸
 
 ### Indy 項目
 
-Indy 項目由 Sovrin 基金會牽頭進行開發，致力於打造一個基於區塊鏈和分佈式帳本技術的數位中心管理平臺。該平臺支持去中心化，支持跨區塊鏈和跨應用的操作，實現全球化的身份管理。Indy 項目於 2017 年 3 月底正式加入到超級帳本項目。
+Indy 項目由 Sovrin 基金會牽頭進行開發，致力於打造一個基於區塊鏈和分散式帳本技術的數位中心管理平臺。該平臺支持去中心化，支持跨區塊鏈和跨應用的操作，實現全球化的身份管理。Indy 項目於 2017 年 3 月底正式加入到超級帳本項目。
 
 該項目主要由 Python 語言開發，包括服務節點、客戶端和通用庫等，目前已有超過 1000 次提交。
 

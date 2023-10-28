@@ -1,8 +1,8 @@
 
 ## 使用 Hyperledger Fabric SDK Node 進行測試
 
-[Hyperledger Fabric Client SDK](https://github.com/hyperledger/fabric-sdk-node) 能夠非常簡單的使用API和 Hyperledger Fabric Blockchain 網絡進行交互。其`v1.1`及其以上的版本添加了一個重要的功能[Conection-Profile](https://fabric-sdk-node.github.io/tutorial-network-config.html)來保存整個network中必要的配置信息，方便client讀取和配置。
-該Demo基於`Connection-Profile`測試了整個網絡的如下功能：
+[Hyperledger Fabric Client SDK](https://github.com/hyperledger/fabric-sdk-node) 能夠非常簡單的使用API和 Hyperledger Fabric Blockchain 網路進行交互。其`v1.1`及其以上的版本添加了一個重要的功能[Conection-Profile](https://fabric-sdk-node.github.io/tutorial-network-config.html)來保存整個network中必要的配置信息，方便client讀取和配置。
+該Demo基於`Connection-Profile`測試了整個網路的如下功能：
 * Fabric CA 相關
   * Enroll用戶
   * Register用戶
@@ -39,8 +39,8 @@ $ git clone https://github.com/Sunnykaby/Hyperledger-fabric-node-sdk-demo
 
 文件/文件夾 | 功能 
 -- | --
-artifacts-local | 本地準備好構建fabric網絡的基礎材料
-artifacts-remote | 使用官方fabric-sample動態構建網絡
+artifacts-local | 本地準備好構建fabric網路的基礎材料
+artifacts-remote | 使用官方fabric-sample動態構建網路
 extra | 一些拓展性的材料
 node |  基於Fabric SDK Node的demo核心代碼 
 src | 測試用chaincode
@@ -49,7 +49,7 @@ Init.sh | 構建Demo的初始化腳本
 ### 構建Demo
 
 該項目提供兩種Demo構建方式：
-* 利用本地已經準備好的相關網絡資源，啟動fabric network。
+* 利用本地已經準備好的相關網路資源，啟動fabric network。
 * 利用官方fabric-sample項目，動態啟動fabric network。
 
 當然，你也可以使用自己已經創建好的fabric network和其相關的connection-profile來測試Demo。
@@ -68,33 +68,33 @@ Init.sh | 構建Demo的初始化腳本
 
 清理Demo資源，使用`./Init.sh clean`
 
-### 啟動Fabric網絡
+### 啟動Fabric網路
 
-首先，我們需要準備一個fabric網絡來進行測試。
+首先，我們需要準備一個fabric網路來進行測試。
 進入到`demo`文件夾。
 
-#### 本地資源構建網絡
+#### 本地資源構建網路
 
-進入資源目錄，利用腳本啟動網絡即可。
+進入資源目錄，利用腳本啟動網路即可。
 ```sh
 cd artifacts
-##啟動網絡
+##啟動網路
 ./net.sh up
-##關閉網絡
+##關閉網路
 ./net.sh down
 ```
-用該腳本啟動網絡中包含：1個orderer， 2個organisation， 4個peer（每個組織有2個peer）和兩個ca（每個組織一個）。
+用該腳本啟動網路中包含：1個orderer， 2個organisation， 4個peer（每個組織有2個peer）和兩個ca（每個組織一個）。
 
-#### 官方資源構建網絡
+#### 官方資源構建網路
 
-在demo目錄，利用腳本啟動網絡即可。
+在demo目錄，利用腳本啟動網路即可。
 ```sh
-##啟動網絡,並配置本地資源
+##啟動網路,並配置本地資源
 ./net.sh init
-##關閉網絡並清理資源
+##關閉網路並清理資源
 ./net.sh clean
 ```
-用該腳本啟動網絡中包含：1個orderer， 2個organisation， 4個peer（每個組織有2個peer）和兩個ca（每個組織一個）。
+用該腳本啟動網路中包含：1個orderer， 2個organisation， 4個peer（每個組織有2個peer）和兩個ca（每個組織一個）。
 
 與本地資源啟動不同，該方案主要有以下步驟：
 * 將官方[fabric-sample項目](https://github.com/hyperledger/fabric-samples)clone到本地
@@ -109,7 +109,7 @@ cd artifacts
 
 #### 資源清單
 
-無論是remote還是local模式，最終資源和網絡準備完成之後，核心資源列表如下：
+無論是remote還是local模式，最終資源和網路準備完成之後，核心資源列表如下：
 ```
 demo/artifacts/  
 ├── channel-artifacts                
@@ -132,7 +132,7 @@ demo/artifacts/
 
 ### 運行Demo
 
-網絡和相關資源準備成功之後，進入`demo/node`目錄。
+網路和相關資源準備成功之後，進入`demo/node`目錄。
 其主要結構為：
 ```
 ├── app                             //核心應用接口

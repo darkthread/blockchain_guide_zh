@@ -2,7 +2,7 @@
 
 布隆過濾器（Bloom Filter），1970 年由 Burton Howard Bloom 在論文《Space/Time Trade-offs in Hash Coding with Allowable Errors》提出。布隆過濾器是一種基於 Hash 的高效查找結構，能夠快速（常數時間內）回答“某個元素是否在一個集合內”的問題。
 
-該結構因為其高效性，被大量應用到網絡和安全領域，例如信息檢索（BigTable 和 HBase）、垃圾郵件規則、註冊管理等。
+該結構因為其高效性，被大量應用到網路和安全領域，例如信息檢索（BigTable 和 HBase）、垃圾郵件規則、註冊管理等。
 
 ### 基於 Hash 的快速查找
 

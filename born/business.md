@@ -6,19 +6,19 @@
 
 從技術角度，一般認為，區塊鏈具有如下特點：
 
-* 分佈式容錯性：分佈式帳本網絡極其魯棒，能夠容忍部分節點的異常狀態；
+* 分散式容錯性：分散式帳本網路極其魯棒，能夠容忍部分節點的異常狀態；
 * 不可篡改性：共識提交後的數據會一直存在，不可被銷燬或修改；
 * 隱私保護性：密碼學保證了數據隱私，即便數據洩露，也無法解析。
 
 隨之帶來的業務特性將可能包括：
 
-* 可信任性：區塊鏈技術可以提供天然可信的分佈式帳本平臺，不需要額外第三方中介機構參與； 
+* 可信任性：區塊鏈技術可以提供天然可信的分散式帳本平臺，不需要額外第三方中介機構參與； 
 * 降低成本：跟傳統技術相比，區塊鏈技術可能通過自動化合約執行帶來更快的交易，同時降低維護成本；
 * 增強安全：區塊鏈技術將有利於安全、可靠的審計管理和帳目清算，減少犯罪風險。
 
 區塊鏈並非憑空誕生的新技術，更是多種技術演化到一定程度後的產物，因此，其商業應用場景也跟促生其出現的環境息息相關。對於基於數位方式的交易行為，區塊鏈技術能潛在地降低交易成本、加快交易速度，同時能提高安全性。筆者認為，**能否最終提高生產力，將是一項技術能否被實踐接受的關鍵**。
 
-Gartner 在 2017 年的報告《Forecast: Blockchain Business Value, Worldwide, 2017-2030》中預測：“區塊鏈帶來的商業價值在 2025 年將超過 17.6 億美金，2030 年將超過 3.1 萬億美金（the business value-add of blockchain will grow to slightly more than $176 billion by 2025, and then it will exceed $3.1 trillion by 2030）”。IDC 在 2018 年的報告《Worldwide Semiannual Blockchain Spending Guide》中預測，到 2021 年全球分佈式帳本科技相關投資將接近百億美元，五年內的複合增長率高達 81.2%。
+Gartner 在 2017 年的報告《Forecast: Blockchain Business Value, Worldwide, 2017-2030》中預測：“區塊鏈帶來的商業價值在 2025 年將超過 17.6 億美金，2030 年將超過 3.1 萬億美金（the business value-add of blockchain will grow to slightly more than $176 billion by 2025, and then it will exceed $3.1 trillion by 2030）”。IDC 在 2018 年的報告《Worldwide Semiannual Blockchain Spending Guide》中預測，到 2021 年全球分散式帳本科技相關投資將接近百億美元，五年內的複合增長率高達 81.2%。
 
 目前，區塊鏈技術已經得到了眾多金融機構和商業公司的關注，包括大量金融界和信息技術界的領軍性企業和團體。典型企業組織如下所列（排名不分先後）。
 

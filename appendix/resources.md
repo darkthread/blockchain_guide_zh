@@ -23,7 +23,7 @@ A. Back, M. Corallo, L. Dashjr, M. Friedenbach, G. Maxwell, A. Miller, A. Poelst
 * [blockchain.info](https://blockchain.info)：比特幣信息統計網站。
 * [bitcoin.it](https://en.bitcoin.it)：比特幣 wiki，相關知識介紹。
 * 以太坊項目官方網站：https://www.ethereum.org。
-* 以太坊網絡的狀態統計：https://etherchain.org/
+* 以太坊網路的狀態統計：https://etherchain.org/
 * 超級帳本項目官方網站：[https://hyperledger.org](https://hyperledger.org);
 * 超級帳本 Docker 鏡像：[https://hub.docker.com/r/hyperledger/](https://hub.docker.com/r/hyperledger/)。
 

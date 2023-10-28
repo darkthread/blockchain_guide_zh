@@ -6,7 +6,7 @@
 
 根據所保護公鑰的用途，數位證書可以分為加密數位證書（Encryption Certificate）和簽名驗證數位證書（Signature Certificate）。前者往往用於保護用於加密用途的公鑰；後者則保護用於簽名用途的公鑰。兩種類型的公鑰也可以同時放在同一證書中。
 
-一般情況下，證書需要由證書認證機構（Certification Authority，CA）來進行簽發和背書。權威的商業證書認證機構包括 DigiCert、GlobalSign、VeriSign 等。用戶也可以自行搭建本地 CA 系統，在私有網絡中進行使用。
+一般情況下，證書需要由證書認證機構（Certification Authority，CA）來進行簽發和背書。權威的商業證書認證機構包括 DigiCert、GlobalSign、VeriSign 等。用戶也可以自行搭建本地 CA 系統，在私有網路中進行使用。
 
 ### X.509 證書規範
 一般的，一個數位證書內容可能包括證書域（證書的版本、序列號、簽名算法類型、簽發者信息、有效期、被簽發主體、**簽發的公開密鑰**）、CA 對證書的簽名算法和簽名值等。
