@@ -4,7 +4,7 @@
 
 ### Linux Foundation ID
 
-超級賬本項目受到 Linux 基金會的支持，採用 Linux Foundation ID（LF ID）作為社區唯一的 ID。
+超級帳本項目受到 Linux 基金會的支持，採用 Linux Foundation ID（LF ID）作為社區唯一的 ID。
 
 個人申請 ID 是完全免費的。可以到 https://identity.linuxfoundation.org/ 進行註冊。
 

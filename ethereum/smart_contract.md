@@ -59,9 +59,9 @@ $ geth --identity "TestNode" --rpc --rpcport "8545" --datadir /path/to/datadir -
 * `--port`： 指定和其他節點連接所用的端口號（默認為 30303）；
 * `--nodiscover`： 關閉節點發現機制，防止加入有同樣初始配置的陌生節點；
 
-#### 創建賬號
+#### 創建帳號
 
-用上述 `geth console` 命令進入的命令行界面採用 JavaScript 語法。可以用以下命令新建一個賬號。
+用上述 `geth console` 命令進入的命令行界面採用 JavaScript 語法。可以用以下命令新建一個帳號。
 
 ```
 > personal.newAccount()
@@ -71,7 +71,7 @@ Repeat passphrase:
 "0x1b6eaa5c016af9a3d7549c8679966311183f129e"
 ```
 
-輸入兩遍密碼後，會顯示生成的賬號，如`"0x1b6eaa5c016af9a3d7549c8679966311183f129e"`。可以用以下命令查看該賬號餘額。
+輸入兩遍密碼後，會顯示生成的帳號，如`"0x1b6eaa5c016af9a3d7549c8679966311183f129e"`。可以用以下命令查看該帳號餘額。
 
 ```
 > myAddress = "0x1b6eaa5c016af9a3d7549c8679966311183f129e"
@@ -79,7 +79,7 @@ Repeat passphrase:
 0
 ```
 
-看到該賬號當前餘額為 0。可用 `miner.start()` 命令進行挖礦，由於初始難度設置的較小，所以很容易就可挖出一些餘額。`miner.stop()` 命令可以停止挖礦。
+看到該帳號當前餘額為 0。可用 `miner.start()` 命令進行挖礦，由於初始難度設置的較小，所以很容易就可挖出一些餘額。`miner.stop()` 命令可以停止挖礦。
 
 ### 創建和編譯智能合約
 
@@ -129,7 +129,7 @@ Contract JSON ABI
 
 ### 部署智能合約
 
-在 Geth 的 JavaScript 環境命令行界面，首先用以下命令解鎖自己的賬戶，否則無法發送交易。
+在 Geth 的 JavaScript 環境命令行界面，首先用以下命令解鎖自己的帳戶，否則無法發送交易。
 
 ```
 > personal.unlockAccount(myAddress)

@@ -1,7 +1,7 @@
 ## 鏈上代碼
 
 ### 什麼是 chaincode
-chaincode（鏈碼）是部署在 Hyperledger fabric 網絡節點上，可被調用與分佈式賬本進行交互的一段程序代碼，也即狹義範疇上的“智能合約”。鏈碼在 VP 節點上的隔離沙盒（目前為 Docker 容器）中執行，並通過 gRPC 協議來被相應的 VP 節點調用和查詢。
+chaincode（鏈碼）是部署在 Hyperledger fabric 網絡節點上，可被調用與分佈式帳本進行交互的一段程序代碼，也即狹義範疇上的“智能合約”。鏈碼在 VP 節點上的隔離沙盒（目前為 Docker 容器）中執行，並通過 gRPC 協議來被相應的 VP 節點調用和查詢。
 
 Hyperledger 支持多種計算機語言實現的 chaincode，包括 Golang、JavaScript、Java 等。
 

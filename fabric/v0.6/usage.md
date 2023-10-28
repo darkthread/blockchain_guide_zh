@@ -48,7 +48,7 @@ Query Result: 100
 
 ### 調用 chaincode
 
-a 向 b 轉賬 10 元。
+a 向 b 轉帳 10 元。
 
 ```sh
 $ peer chaincode invoke -n ${CC_ID} -c '{"Function": "invoke", "Args": ["a", "b", "10"]}'

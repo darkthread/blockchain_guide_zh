@@ -23,7 +23,7 @@ $ docker-compose -f 4-peers-with-membersrvc.yml up
 
 ### 用戶登陸
 
-當啟用了權限管理後，首先需要登錄，例如以內置賬戶 jim 賬戶登錄。
+當啟用了權限管理後，首先需要登錄，例如以內置帳戶 jim 帳戶登錄。
 
 登錄 vp0，並執行登錄命令。
 
@@ -82,7 +82,7 @@ Deploy chaincode: ee5b24a1f17c356dd5f6e37307922e39ddba12e5d2e203ed93401d7d05eb0d
 # CC_ID=ee5b24a1f17c356dd5f6e37307922e39ddba12e5d2e203ed93401d7d05eb0dd194fb9070549c5dc31eb63f4e654dbd5a1d86cbb30c48e3ab1812590cd0f78539
 ```
 
-此時，查詢賬戶值應當為初始值。
+此時，查詢帳戶值應當為初始值。
 
 ```sh
 # peer chaincode query -u jim -n ${CC_ID} -c '{"Function": "query", "Args": ["a"]}'
@@ -134,7 +134,7 @@ Response：
 
 ### chaincode 調用
 
-在賬戶 a、b 之間進行轉賬 10 元的操作。
+在帳戶 a、b 之間進行轉帳 10 元的操作。
 
 ```sh
 # peer chaincode invoke -u jim -n ${CC_ID} -c '{"Function": "invoke", "Args": ["a", "b", "10"]}'
@@ -185,7 +185,7 @@ Response：
 
 ### chaincode 查詢
 
-查詢 a 賬戶的餘額。
+查詢 a 帳戶的餘額。
 
 ```sh
 # peer chaincode query -u jim -n ${CC_ID} -c '{"Function": "query", "Args": ["a"]}'

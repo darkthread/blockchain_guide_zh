@@ -24,8 +24,8 @@ A. Back, M. Corallo, L. Dashjr, M. Friedenbach, G. Maxwell, A. Miller, A. Poelst
 * [bitcoin.it](https://en.bitcoin.it)：比特幣 wiki，相關知識介紹。
 * 以太坊項目官方網站：https://www.ethereum.org。
 * 以太坊網絡的狀態統計：https://etherchain.org/
-* 超級賬本項目官方網站：[https://hyperledger.org](https://hyperledger.org);
-* 超級賬本 Docker 鏡像：[https://hub.docker.com/r/hyperledger/](https://hub.docker.com/r/hyperledger/)。
+* 超級帳本項目官方網站：[https://hyperledger.org](https://hyperledger.org);
+* 超級帳本 Docker 鏡像：[https://hub.docker.com/r/hyperledger/](https://hub.docker.com/r/hyperledger/)。
 
 ### 培訓課程
 

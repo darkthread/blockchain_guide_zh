@@ -10,9 +10,9 @@
 
 區塊鏈技術是現代金融科技（Fintech）領域的一項重要技術創新。
 
-作為分散式記賬（Distributed Ledger Technology，DLT）系統的核心技術，區塊鏈被認為在金融、徵信、物聯網、經濟貿易、資產管理等眾多領域都擁有廣泛的應用前景。區塊鏈技術自身尚處於快速發展的初級階段，現有區塊鏈系統在設計和實現中利用了分散式系統、密碼學、博弈論、網路協議等諸多學科的知識，為學習原理和實踐應用都帶來了不小的挑戰。
+作為分散式記帳（Distributed Ledger Technology，DLT）系統的核心技術，區塊鏈被認為在金融、徵信、物聯網、經濟貿易、資產管理等眾多領域都擁有廣泛的應用前景。區塊鏈技術自身尚處於快速發展的初級階段，現有區塊鏈系統在設計和實現中利用了分散式系統、密碼學、博弈論、網路協議等諸多學科的知識，為學習原理和實踐應用都帶來了不小的挑戰。
 
-本書希望可以探索區塊鏈概念的來龍去脈，剝繭抽絲，系統剖析關鍵技術原理，同時講解實踐應用。在開發相關開源分散式賬本平臺（如超級賬本），以及設計基於區塊鏈的企業方案過程中，筆者積累了一些實踐經驗，也通過本書一併分享出來，希望能推動區塊鏈技術的早日成熟和更多應用場景的出現。
+本書希望可以探索區塊鏈概念的來龍去脈，剝繭抽絲，系統剖析關鍵技術原理，同時講解實踐應用。在開發相關開源分散式帳本平臺（如超級帳本），以及設計基於區塊鏈的企業方案過程中，筆者積累了一些實踐經驗，也通過本書一併分享出來，希望能推動區塊鏈技術的早日成熟和更多應用場景的出現。
 
 ## 目錄
 
@@ -20,8 +20,8 @@
 * [修訂記錄](revision.md)
 * [如何貢獻](contribute.md)
 * [區塊鏈的誕生](born/README.md)
-  * [記賬科技的千年演化](born/ledger_history.md)
-  * [分佈式記賬與區塊鏈](born/dlt_problem.md)
+  * [記帳科技的千年演化](born/ledger_history.md)
+  * [分佈式記帳與區塊鏈](born/dlt_problem.md)
   * [站在前人肩膀上的比特幣](born/bitcoin.md)
   * [區塊鏈的商業價值](born/business.md)
   * [本章小結](born/summary.md)
@@ -83,8 +83,8 @@
   * [使用智能合約](ethereum/smart_contract.md)
   * [智能合約案例：投票](ethereum/contract_example.md)
   * [本章小結](ethereum/summary.md)
-* [超級賬本 —— 面向企業的分佈式賬本](hyperledger/README.md)
-  * [超級賬本項目簡介](hyperledger/intro.md)
+* [超級帳本 —— 面向企業的分佈式帳本](hyperledger/README.md)
+  * [超級帳本項目簡介](hyperledger/intro.md)
   * [社區組織結構](hyperledger/community.md)
   * [頂級項目介紹](hyperledger/top_project.md)
   * [開發必備工具](hyperledger/tools.md)
@@ -119,7 +119,7 @@
   * [簡介](baas/intro.md)
   * [IBM Bluemix 雲區塊鏈服務](baas/bluemix.md)
   * [微軟 Azure 雲區塊鏈服務](baas/azure.md)
-  * [使用超級賬本 Cello 搭建區塊鏈服務](baas/cello.md)
+  * [使用超級帳本 Cello 搭建區塊鏈服務](baas/cello.md)
   * [本章小結](baas/summary.md)
 * [性能與評測](evaluation/README.md)
   * [簡介](evaluation/intro.md)

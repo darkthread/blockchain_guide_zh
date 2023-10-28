@@ -125,10 +125,10 @@ Solidity 中的合約（contract）類似面向對象編程語言中的類。每
 
 在本例命名為 `Ballot` 的合約中，聲明瞭 2 個結構體類型：`Voter` 和 `Proposal`。
 
-* `struct Voter`：投票人，其屬性包括 `uint weight`（該投票人的權重）、`bool voted`（是否已投票）、`address delegate`（如果該投票人將投票委託給他人，則記錄受委託人的賬戶地址）和 `uint vote`（投票做出的選擇，即相應提案的索引號）。
+* `struct Voter`：投票人，其屬性包括 `uint weight`（該投票人的權重）、`bool voted`（是否已投票）、`address delegate`（如果該投票人將投票委託給他人，則記錄受委託人的帳戶地址）和 `uint vote`（投票做出的選擇，即相應提案的索引號）。
 * `struct Proposal`：提案，其屬性包括 `bytes32 name`（名稱）和 `uint voteCount`（已獲得的票數）。
 
-需要注意，`address` 類型記錄了一個以太坊賬戶的地址。`address` 可看作一個數值類型，但也包括一些與以太幣相關的方法，如查詢餘額 `<address>.balance`、向該地址轉賬 `<address>.transfer(uint256 amount)` 等。
+需要注意，`address` 類型記錄了一個以太坊帳戶的地址。`address` 可看作一個數值類型，但也包括一些與以太幣相關的方法，如查詢餘額 `<address>.balance`、向該地址轉帳 `<address>.transfer(uint256 amount)` 等。
 
 #### 狀態變量
 

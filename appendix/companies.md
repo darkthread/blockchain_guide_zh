@@ -12,7 +12,7 @@
 
 #### 組織
 * [R3 CEV](https://r3cev.com)：創立於 2015 年 9 月，總部位於紐約的金融聯盟組織，專注於研究和評估基於區塊鏈的金融技術解決方案，由 40 多家國際金融機構組成，包括 Citi、BOA、高盛、摩根、瑞銀、IBM、微軟等。R3 開源技術已經 [宣佈](www.newsbtc.com/2016/10/22/r3-corda-hyperledger-open-source/) 加入 HyperLedger 項目。
-* [HyperLedger 社區]（https://hyperledger.org）：創立於 2015 年 12 月的技術社區，由 Linux 基金會管理，包括 IBM、Accenture、Intel、J.P.Morgan、R3、DAH、DTCC、FUJITSU、HITACHI、SWIFT、Cisco 等多家企業參與成立，試圖打造面向企業應用場景的分佈式賬本平臺。
+* [HyperLedger 社區]（https://hyperledger.org）：創立於 2015 年 12 月的技術社區，由 Linux 基金會管理，包括 IBM、Accenture、Intel、J.P.Morgan、R3、DAH、DTCC、FUJITSU、HITACHI、SWIFT、Cisco 等多家企業參與成立，試圖打造面向企業應用場景的分佈式帳本平臺。
 * [Ethereum 社區](https://ethereum.org): 圍繞以太坊區塊鏈平臺的開放社區。
 * [DAO]()： Distributed Autonomous Organization，基於以太坊平臺的公募基金(眾籌)組織，或去中心化的風投。眾籌資金超過 1.6 億美金。
 

@@ -68,7 +68,7 @@ PBFT 算法採用密碼學相關技術（RSA 簽名算法、消息驗證編碼�
 
 2014 年，斯坦福的 Christopher Copeland 和 Hongxia Zhong 在論文《Tangaroa: a byzantine fault tolerant raft》中提出在 Raft 算法基礎上引入拜占庭容錯性，兼顧可實現性和魯棒性。該論文也啟發了 Kadena 等項目的出現，實現更好性能的拜占庭算法。
 
-2017 年，MIT 計算機科學與人工智能實驗室（CSAIL）的 Yossi Gilad 和 Silvio Micali 等人在論文《Algorand: Scaling Byzantine Agreements for Cryptocurrencies》中針對 PBFT 算法在很多節點情況下性能不佳的問題，提出先選出少量記賬節點，然後再利用可驗證隨機函數（Verifiable Random Function，VRF）來隨機選取領導節點，避免全網直接做共識，將拜占庭算法擴展到了支持較大規模的應用場景，同時保持較好的性能（1000+ tps）。
+2017 年，MIT 計算機科學與人工智能實驗室（CSAIL）的 Yossi Gilad 和 Silvio Micali 等人在論文《Algorand: Scaling Byzantine Agreements for Cryptocurrencies》中針對 PBFT 算法在很多節點情況下性能不佳的問題，提出先選出少量記帳節點，然後再利用可驗證隨機函數（Verifiable Random Function，VRF）來隨機選取領導節點，避免全網直接做共識，將拜占庭算法擴展到了支持較大規模的應用場景，同時保持較好的性能（1000+ tps）。
 
 此外，康奈爾大學的 Rafael Pass 和 Elaine Shi 在論文《The Sleepy Model of Consensus》中還探討了在動態場景（大量節點離線情況）下如何保障共識的安全性，所提出的 Sleepy Consensus 算法可以在活躍誠實節點達到一半以上時確保完成拜占庭共識。
 
