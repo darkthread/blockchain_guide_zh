@@ -1,6 +1,6 @@
 ## Fabric v0.6 安裝部署
 
-如果是初次接觸 Hyperledger Fabric 項目，推薦採用如下的步驟，基於 Docker-Compose 的一鍵部署。
+如果是初次接觸 Hyperledger Fabric 專案，推薦採用如下的步驟，基於 Docker-Compose 的一鍵部署。
 
 *官方文檔現在也完善了安裝部署的步驟，具體可以參考代碼 `doc` 目錄下內容。*
 

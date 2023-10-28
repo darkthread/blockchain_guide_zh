@@ -32,7 +32,7 @@
 * CSR：Certificate Signing Request，證書籤名申請，包括通用名、名稱、主機、生成私鑰算法和大小、CA 配置和序列號等信息，用來發給 CA 服務以頒發簽名的證書。
 * DER：Distinguished Encoding Rules，ASN.1 中定義的一種二進制編碼格式，可以用來保存證書或密鑰內容。
 * Genesis Block：創世區塊，區塊鏈的第一個區塊，一般用於初始化，不帶有交易信息。
-* Hash：哈希算法，任意長度的二進制值映射為較短的固定長度的二進制值的算法。
+* Hash：雜湊算法，任意長度的二進制值映射為較短的固定長度的二進制值的算法。
 * IES：Integrated Encryption Scheme，集成加密機制，一種混合加密機制，可以應對選擇明文攻擊（可以獲知任意明文和對應密文）情況下的攻擊。包括 DLIES（基於離散對數）和 ECIES（基於橢圓曲線）兩種實現。
 * Nonce：密碼學術語，表示一個臨時的值，多為隨機字符串。
 * OCSP：Online Certificate Status Protocol，在線證書狀態協議，通過查詢服務來在線確認證書的狀態（如是否撤銷）。RFC 2560 中定義。

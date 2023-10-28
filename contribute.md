@@ -24,7 +24,7 @@ $ git push
 
 最後，在 GitHub 網站上提交 pull request 即可。
 
-另外，建議定期使用項目倉庫內容更新自己倉庫內容。
+另外，建議定期使用專案倉庫內容更新自己倉庫內容。
 ```sh
 $ git remote add upstream https://github.com/yeasy/blockchain_guide
 $ git fetch upstream

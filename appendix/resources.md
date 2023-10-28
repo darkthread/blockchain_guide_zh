@@ -17,14 +17,14 @@ A. Back, M. Corallo, L. Dashjr, M. Friedenbach, G. Maxwell, A. Miller, A. Poelst
 * F. Reid and M. Harrigan, “An analysis of anonymity in the bitcoin system,” Secur. Priv. Soc. Networks, pp. 197–223, 2013.
 * K. Bhargavan, A. Delignat-Lavaud, C. Fournet, A. Gollamudi, G. Gonthier, N. Kobeissi, A. Rastogi, T. Sibut-Pinote, N. Swamy, and S. Zanella-Béguelin, “Formal Verification of Smart Contracts,” 2016.
 
-### 項目網站
+### 專案網站
 
-* 比特幣項目官方網站：https://bitcoin.org/。
+* 比特幣專案官方網站：https://bitcoin.org/。
 * [blockchain.info](https://blockchain.info)：比特幣信息統計網站。
 * [bitcoin.it](https://en.bitcoin.it)：比特幣 wiki，相關知識介紹。
-* 以太坊項目官方網站：https://www.ethereum.org。
+* 以太坊專案官方網站：https://www.ethereum.org。
 * 以太坊網路的狀態統計：https://etherchain.org/
-* 超級帳本項目官方網站：[https://hyperledger.org](https://hyperledger.org);
+* 超級帳本專案官方網站：[https://hyperledger.org](https://hyperledger.org);
 * 超級帳本 Docker 鏡像：[https://hub.docker.com/r/hyperledger/](https://hub.docker.com/r/hyperledger/)。
 
 ### 培訓課程

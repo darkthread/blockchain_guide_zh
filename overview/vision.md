@@ -26,13 +26,13 @@
 
 ![堅持還是放棄？](_images/near_dream.png)
 
-目前，區塊鏈在金融相關領域的應用相對成熟，其它方向尚處於初步實踐階段。但毫無疑問地是，區塊鏈技術在已經落地的行業中，確實帶來了生產力提升。2018 年 3 月，國際銀行間金融電信協會（The Society for Worldwide Interbank Financial Telecommunication，SWIFT）基於超級帳本項目經過一年多的成功驗證，宣佈認可分散式帳本技術可滿足銀行間實時交易，同時遵守監管的報告要求。
+目前，區塊鏈在金融相關領域的應用相對成熟，其它方向尚處於初步實踐階段。但毫無疑問地是，區塊鏈技術在已經落地的行業中，確實帶來了生產力提升。2018 年 3 月，國際銀行間金融電信協會（The Society for Worldwide Interbank Financial Telecommunication，SWIFT）基於超級帳本專案經過一年多的成功驗證，宣佈認可分散式帳本技術可滿足銀行間實時交易，同時遵守監管的報告要求。
 
 此外，相關標準化組織也在積極從標準和規範角度探討如何使用分散式帳本。包括：
 
 * 國際電信聯盟電信標準化組織（International Telecommunication Union Telecommunication Standardization Sector，ITU-T）自 2016 年起發起 3 個工作小組（SG16，17，20）來分別進行分散式帳本整體需求、分散式帳本安全需求和分散式帳本在物聯網領域應用等方面的研究；
 * 國際標準化組織（International Organization for Standardization，ISO）成立 5 個課題組，探討制定關於分散式帳本架構、應用、安全保護、身份管理和智能合約方面的相關規範；
-* 電氣電子工程師協會（IEEE）成立 P2418.2項目，探討區塊鏈系統數據格式標準；
+* 電氣電子工程師協會（IEEE）成立 P2418.2專案，探討區塊鏈系統數據格式標準；
 * 國際互聯網工程任務組（Internet Engineering Task Force，IETF）成立了 Decentralized Internet Infrastructure Proposed RG (dinrg)。該研究組將集中在去中心化架構服務中的信任管理、身份管理、命名和資源發現等問題；
 * 萬維網聯盟（World Wide Web Consortium，W3C）成立了三個相關的研究小組，分別探討區塊鏈技術和應用；數位資產管理規範以及跨帳本互聯協議等。
 

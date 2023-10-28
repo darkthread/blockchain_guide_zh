@@ -48,14 +48,14 @@ Init.sh | 構建Demo的初始化腳本
 
 ### 構建Demo
 
-該項目提供兩種Demo構建方式：
+該專案提供兩種Demo構建方式：
 * 利用本地已經準備好的相關網路資源，啟動fabric network。
-* 利用官方fabric-sample項目，動態啟動fabric network。
+* 利用官方fabric-sample專案，動態啟動fabric network。
 
 當然，你也可以使用自己已經創建好的fabric network和其相關的connection-profile來測試Demo。
 
 ```sh
-##進入項目根目錄
+##進入專案根目錄
 
 ##使用本地資源構建Demo
 ./Init.sh local
@@ -97,7 +97,7 @@ cd artifacts
 用該腳本啟動網路中包含：1個orderer， 2個organisation， 4個peer（每個組織有2個peer）和兩個ca（每個組織一個）。
 
 與本地資源啟動不同，該方案主要有以下步驟：
-* 將官方[fabric-sample項目](https://github.com/hyperledger/fabric-samples)clone到本地
+* 將官方[fabric-sample專案](https://github.com/hyperledger/fabric-samples)clone到本地
 * 利用`fabric-sample/first-network/bynf.sh up`啟動fabric腳本
 * 將一些資源文件連接到指定位置，方便node程序使用
 * 通過資源文件構建connection-profile（替換密鑰等）
@@ -154,5 +154,5 @@ demo/artifacts/
 
 ### 持續更新
 
-如果在使用途中發現任何問題，或者有任何需求可以在該項目的issue中提出改進方案或者建議。
+如果在使用途中發現任何問題，或者有任何需求可以在該專案的issue中提出改進方案或者建議。
 Github地址：[Hyperledger-fabric-node-sdk-demo](https://github.com/Sunnykaby/Hyperledger-fabric-node-sdk-demo)

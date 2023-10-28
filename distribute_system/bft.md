@@ -66,7 +66,7 @@ PBFT 算法採用密碼學相關技術（RSA 簽名算法、消息驗證編碼�
 
 拜占庭問題之所以難解，在於任何時候系統中都可能存在多個提案（因為提案成本很低），並且在大規模場景下要完成最終確認的過程容易受干擾，難以達成共識。
 
-2014 年，斯坦福的 Christopher Copeland 和 Hongxia Zhong 在論文《Tangaroa: a byzantine fault tolerant raft》中提出在 Raft 算法基礎上引入拜占庭容錯性，兼顧可實現性和魯棒性。該論文也啟發了 Kadena 等項目的出現，實現更好性能的拜占庭算法。
+2014 年，斯坦福的 Christopher Copeland 和 Hongxia Zhong 在論文《Tangaroa: a byzantine fault tolerant raft》中提出在 Raft 算法基礎上引入拜占庭容錯性，兼顧可實現性和魯棒性。該論文也啟發了 Kadena 等專案的出現，實現更好性能的拜占庭算法。
 
 2017 年，MIT 計算機科學與人工智能實驗室（CSAIL）的 Yossi Gilad 和 Silvio Micali 等人在論文《Algorand: Scaling Byzantine Agreements for Cryptocurrencies》中針對 PBFT 算法在很多節點情況下性能不佳的問題，提出先選出少量記帳節點，然後再利用可驗證隨機函數（Verifiable Random Function，VRF）來隨機選取領導節點，避免全網直接做共識，將拜占庭算法擴展到了支持較大規模的應用場景，同時保持較好的性能（1000+ tps）。
 

@@ -64,7 +64,7 @@
   * [其它問題](crypto/others.md)
   * [本章小結](crypto/summary.md)
 * [比特幣 —— 區塊鏈思想誕生的搖籃](bitcoin/README.md)
-  * [比特幣項目簡介](bitcoin/intro.md)
+  * [比特幣專案簡介](bitcoin/intro.md)
   * [實體貨幣到加密數位貨幣](bitcoin/currency.md)
   * [基本原理和設計](bitcoin/design.md)
   * [挖礦過程](bitcoin/mining.md)
@@ -75,7 +75,7 @@
   * [相關工具](bitcoin/tools.md)
   * [本章小結](bitcoin/summary.md)
 * [以太坊 —— 掙脫加密貨幣的枷鎖](ethereum/README.md)
-  * [以太坊項目簡介](ethereum/intro.md)
+  * [以太坊專案簡介](ethereum/intro.md)
   * [核心概念](ethereum/concept.md)
   * [主要設計](ethereum/design.md)
   * [相關工具](ethereum/tools.md)
@@ -84,9 +84,9 @@
   * [智能合約案例：投票](ethereum/contract_example.md)
   * [本章小結](ethereum/summary.md)
 * [超級帳本 —— 面向企業的分散式帳本](hyperledger/README.md)
-  * [超級帳本項目簡介](hyperledger/intro.md)
+  * [超級帳本專案簡介](hyperledger/intro.md)
   * [社區組織結構](hyperledger/community.md)
-  * [頂級項目介紹](hyperledger/top_project.md)
+  * [頂級專案介紹](hyperledger/top_project.md)
   * [開發必備工具](hyperledger/tools.md)
   * [貢獻代碼](hyperledger/contribute.md)
   * [本章小結](hyperledger/summary.md)
@@ -143,7 +143,7 @@
 如果發現疏漏，歡迎提交到 [勘誤表](https://github.com/yeasy/blockchain_guide/wiki/%E3%80%8A%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8E%9F%E7%90%86%E3%80%81%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E5%8B%98%E8%AF%AF%E8%A1%A8)。
 
 ## 參與貢獻
-區塊鏈技術自身仍在快速發展中，生態環境也在蓬勃成長。歡迎 [參與維護項目](contribute.md)。
+區塊鏈技術自身仍在快速發展中，生態環境也在蓬勃成長。歡迎 [參與維護專案](contribute.md)。
 
 * [修訂記錄](revision.md)
 * [貢獻者名單](https://github.com/yeasy/blockchain_guide/graphs/contributors)

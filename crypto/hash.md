@@ -1,7 +1,7 @@
 ## Hash 算法與數位摘要
 
 ### 定義
-Hash（哈希或散列）算法，又常被稱為指紋（fingerprint）或摘要（digest）算法，是非常基礎也非常重要的一類算法。可以將任意長度的二進制明文串映射為較短的（通常是固定長度的）二進制串（Hash 值），並且不同的明文很難映射為相同的 Hash 值。
+Hash（雜湊或散列）算法，又常被稱為指紋（fingerprint）或摘要（digest）算法，是非常基礎也非常重要的一類算法。可以將任意長度的二進制明文串映射為較短的（通常是固定長度的）二進制串（Hash 值），並且不同的明文很難映射為相同的 Hash 值。
 
 例如計算 “hello blockchain world, this is yeasy@github” 的 SHA-256 Hash 值。
 

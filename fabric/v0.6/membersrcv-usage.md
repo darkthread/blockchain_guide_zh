@@ -1,6 +1,6 @@
 ## 權限管理
 
-權限管理機制是 hyperledger fabric 項目的一大特色。下面給出使用權限管理的一個應用案例。
+權限管理機制是 hyperledger fabric 專案的一大特色。下面給出使用權限管理的一個應用案例。
 
 ### 啟動集群
 
@@ -13,7 +13,7 @@ $ docker pull yeasy/hyperledger-peer:latest
 $ docker pull yeasy/hyperledger-membersrvc:latest
 ```
 
-進入 hyperledger 項目，啟動帶成員管理的 PBFT 集群。
+進入 hyperledger 專案，啟動帶成員管理的 PBFT 集群。
 
 ```sh
 $ git clone https://github.com/yeasy/docker-compose-files

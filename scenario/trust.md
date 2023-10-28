@@ -37,14 +37,14 @@
 
 類似地，針對食品造假這一難題，IBM、沃爾瑪、清華大學於 2016 年底共同宣佈將在食品安全領域展開合作，將用區塊鏈技術搭建透明可追溯的跨境食品供應鏈。這一全新的供應鏈將改善食品的溯源和物流環節，打造更為安全的全球食品市場。
 
-### 其他項目
+### 其他專案
 
 在人力資源和教育領域，MIT 研究員朱莉安娜·納扎雷（Juliana Nazaré）和學術創新部主管菲利普·施密特（Philipp Schmidt）發表了文章[《MIT Media Lab Uses the Bitcoin Blockchain for Digital Certificates》](http://quarktalk.cc/threads/mit-media-lab-uses-the-bitcoin-blockchain-for-digital-certificates.1553/)，介紹基於區塊鏈的學歷認證系統。基於該系統，用人單位可以確認求職者的學歷信息是真實可靠的。2018 年 2 月，麻省理工學院嚮應屆畢業生頒發了首批基於區塊鏈的數位學位證書。
 
-此外，還包括一些其他相關的應用項目：
+此外，還包括一些其他相關的應用專案：
 
 * Chronicled：基於區塊鏈的球鞋鑑定方案，為正品球鞋添加電子標籤，記錄在區塊鏈上。
 * Mediachain：通過 metadata 協議，將內容創造者與作品唯一對應。
-* Mycelia：區塊鏈產權保護項目，為音樂人實現音樂的自由交易。
+* Mycelia：區塊鏈產權保護專案，為音樂人實現音樂的自由交易。
 * Tierion: 將用戶數據錨定在比特幣或以太坊區塊鏈上，並生成“區塊鏈收據”。
 * Ziggurat：基於區塊鏈提供文字、圖片、音視頻版權資產的登記和管理服務。

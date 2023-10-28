@@ -76,7 +76,7 @@
 輸出腳本目前支持兩種類型：
 
 * [P2PKH](https://en.bitcoin.it/wiki/Script#Standard_Transaction_to_Bitcoin_address_.28pay-to-pubkey-hash.29)：Pay-To-Public-Key-Hash，允許用戶將比特幣發送到一個或多個典型的比特幣地址上（證明擁有該公鑰），前導字節一般為 0x00； 
-* P2SH：Pay-To-Script-Hash，支付者創建一個輸出腳本，裡邊包含另一個腳本（認領腳本）的哈希，一般用於需要多人簽名的場景，前導字節一般為 0x05； 
+* P2SH：Pay-To-Script-Hash，支付者創建一個輸出腳本，裡邊包含另一個腳本（認領腳本）的雜湊，一般用於需要多人簽名的場景，前導字節一般為 0x05； 
 
 以 P2PKH 為例，輸出腳本的格式為
 
@@ -117,7 +117,7 @@ scriptSig: <sig> <pubKey>
 
 * 版本號：4 字節；
 * 上一個區塊頭的 Hash 值：鏈接到上一個合法的塊上，對其區塊頭進行兩次 SHA256 操作，32 字節；
-* 本區塊所包含的所有交易的 Merkle 樹根的哈希值：兩次 SHA256 操作，32 字節；
+* 本區塊所包含的所有交易的 Merkle 樹根的雜湊值：兩次 SHA256 操作，32 字節；
 * 時間戳：4 字節；
 * 難度指標：4 字節；
 * Nonce：4 字節，PoW 問題的答案。

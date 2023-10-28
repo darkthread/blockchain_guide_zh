@@ -5,13 +5,13 @@
 ### 國際
 
 #### 企業
-* [IBM](https://www.ibm.com): 貢獻區塊鏈平臺代碼到 HyperLedger 項目，推動區塊鏈產業發展，跟多家銀行和企業進行區塊鏈項目合作。
-* [DTCC]():貢獻區塊鏈代碼到 HyperLedger 項目。
+* [IBM](https://www.ibm.com): 貢獻區塊鏈平臺代碼到 HyperLedger 專案，推動區塊鏈產業發展，跟多家銀行和企業進行區塊鏈專案合作。
+* [DTCC]():貢獻區塊鏈代碼到 HyperLedger 專案。
 * [Circle]()：基於區塊鏈的支付應用公司，已獲得 6000 萬美元 D 輪投資，投資者包括 IDG、百度、中金甲子、廣大投資等，目前年交易額超過 10 億美金。
 * [Consensus]()：區塊鏈創業團隊，試圖打造區塊鏈平臺技術和應用支撐，獲得多家投資。
 
 #### 組織
-* [R3 CEV](https://r3cev.com)：創立於 2015 年 9 月，總部位於紐約的金融聯盟組織，專注於研究和評估基於區塊鏈的金融技術解決方案，由 40 多家國際金融機構組成，包括 Citi、BOA、高盛、摩根、瑞銀、IBM、微軟等。R3 開源技術已經 [宣佈](www.newsbtc.com/2016/10/22/r3-corda-hyperledger-open-source/) 加入 HyperLedger 項目。
+* [R3 CEV](https://r3cev.com)：創立於 2015 年 9 月，總部位於紐約的金融聯盟組織，專注於研究和評估基於區塊鏈的金融技術解決方案，由 40 多家國際金融機構組成，包括 Citi、BOA、高盛、摩根、瑞銀、IBM、微軟等。R3 開源技術已經 [宣佈](www.newsbtc.com/2016/10/22/r3-corda-hyperledger-open-source/) 加入 HyperLedger 專案。
 * [HyperLedger 社區]（https://hyperledger.org）：創立於 2015 年 12 月的技術社區，由 Linux 基金會管理，包括 IBM、Accenture、Intel、J.P.Morgan、R3、DAH、DTCC、FUJITSU、HITACHI、SWIFT、Cisco 等多家企業參與成立，試圖打造面向企業應用場景的分散式帳本平臺。
 * [Ethereum 社區](https://ethereum.org): 圍繞以太坊區塊鏈平臺的開放社區。
 * [DAO]()： Distributed Autonomous Organization，基於以太坊平臺的公募基金(眾籌)組織，或去中心化的風投。眾籌資金超過 1.6 億美金。

@@ -1,17 +1,17 @@
 ## 貢獻代碼
 
-超級帳本的各個子項目，都提供了十分豐富的開發和提交代碼的指南和文檔，一般可以在代碼的 `docs` 目錄下找到。部分項目（如 Fabric 和 Cello）使用了社區自建的代碼管理和評審方案，其他項目多數直接使用 Github 來管理流程。
+超級帳本的各個子專案，都提供了十分豐富的開發和提交代碼的指南和文檔，一般可以在代碼的 `docs` 目錄下找到。部分專案（如 Fabric 和 Cello）使用了社區自建的代碼管理和評審方案，其他專案多數直接使用 Github 來管理流程。
 
-這裡以 Fabric 項目為例進行講解。
+這裡以 Fabric 專案為例進行講解。
 
 ### 安裝環境
 
-推薦在 Linux（如 Ubuntu 18.04+）或 MacOS 環境中開發 Hyperledger 項目代碼。
+推薦在 Linux（如 Ubuntu 18.04+）或 MacOS 環境中開發 Hyperledger 專案代碼。
 
-不同項目會依賴不同的環境，可以從項目文檔中找到。以 Fabric 項目為例，開發需要安裝如下依賴。
+不同專案會依賴不同的環境，可以從專案文檔中找到。以 Fabric 專案為例，開發需要安裝如下依賴。
 
 * Git：用來從 Gerrit 倉庫獲取代碼並進行版本管理。
-* Golang 1.10+：訪問 golang.org 進行安裝，之後需要配置 `$GOPATH` 環境變量。注意不同項目可能需要不同語言環境。
+* Golang 1.10+：訪問 golang.org 進行安裝，之後需要配置 `$GOPATH` 環境變量。注意不同專案可能需要不同語言環境。
 * Docker 1.18+：用來支持容器環境，MacOS 下推薦使用 [Docker for Mac](https://docs.docker.com/docker-for-mac)。
 
 ### 獲取代碼
@@ -20,9 +20,9 @@
 
 使用 LF ID 登陸 [https://gerrit.hyperledger.org/](https://gerrit.hyperledger.org/)，在配置頁面（https://gerrit.hyperledger.org/r/#/settings/ssh-keys），添加個人 ssh Pub key，否則每次訪問倉庫需要手動輸入用戶名和密碼。
 
-查看項目列表，找到對應項目，採用 `Clone with commit-msg hook` 的方式來獲取源碼。
+查看專案列表，找到對應專案，採用 `Clone with commit-msg hook` 的方式來獲取源碼。
 
-以 Fabric 項目為例，按照 Go 語言推薦代碼結構，執行如下命令拉取代碼，放到 `$GOPATH/src/github.com/hyperledger/` 路徑下，其中 `LF_ID` 替換為用戶個人的 Linux Foundation ID。
+以 Fabric 專案為例，按照 Go 語言推薦代碼結構，執行如下命令拉取代碼，放到 `$GOPATH/src/github.com/hyperledger/` 路徑下，其中 `LF_ID` 替換為用戶個人的 Linux Foundation ID。
 
 ```sh
 $ mkdir $GOPATH/src/github.com/hyperledger/
@@ -45,7 +45,7 @@ $ git config user.email "your email"
 
 ### 編譯和測試
 
-大部分編譯和安裝過程都可以利用 Makefile 來執行，具體以項目代碼為準。以 Fabric 項目為例，包括如下常見操作。
+大部分編譯和安裝過程都可以利用 Makefile 來執行，具體以專案代碼為準。以 Fabric 專案為例，包括如下常見操作。
 
 #### 安裝 go tools
 執行如下命令。
@@ -172,7 +172,7 @@ To ssh://gerrit.hyperledger.org:29418/fabric.git
 
 ### 評審代碼
 
-提交成功後，可以打開 [gerrit.hyperledger.org/r/](https://gerrit.hyperledger.org/r/)，查看自己最新提交的 patchset 信息。新提交的 patchset 會自動觸發 CI 的測試任務，測試都通過後可邀請項目的維護者（maintainer）們進行評審。為了引起關注，可將鏈接添加到對應的 Jira 任務，並在 RocketChat 上的項目頻道貼出。
+提交成功後，可以打開 [gerrit.hyperledger.org/r/](https://gerrit.hyperledger.org/r/)，查看自己最新提交的 patchset 信息。新提交的 patchset 會自動觸發 CI 的測試任務，測試都通過後可邀請專案的維護者（maintainer）們進行評審。為了引起關注，可將鏈接添加到對應的 Jira 任務，並在 RocketChat 上的專案頻道貼出。
 
 *注：手動觸發某個 CI 測試任務可以通過 Run <Task> 命令，例如重新運行單元測試可以使用 Run UnitTest。*
 
